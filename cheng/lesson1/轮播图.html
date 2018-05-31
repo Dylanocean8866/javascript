@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript" src="move.js"></script>
+	<style>
+		*{
+			margin :0px;
+			padding :0px;
+			list-style: none;
+		}
+		div {
+			width: 621px;
+			height: 204px;
+			overflow: hidden;
+			margin :100px auto auto auto;
+			position: relative;
+		}
+		.sliderIndex{
+			position: absolute;
+			bottom :10px;
+			left :285.5px;
+			width: 50px;
+			height: 30px;
+
+		}
+		.sliderIndex span{
+			border-radius:50%;
+			display: inline-block;
+			width :12px;
+			height :12px;
+			background :#ccc;
+			text-align: center;
+			cursor :pointer;
+		}
+		.active{
+			background: #f40!important;
+		}
+
+		div ul{
+			overflow: hidden;
+			width: 2484px;
+			height: 204px;
+			position: absolute;
+			top :0px;
+			left :0px;
+		}
+		div ul li{
+			width: 621px;
+			height: 204px;
+			float :left;
+		}
+
+		div ul li img{
+			width: 100%;
+			height: 100%;
+		}
+		p{
+			position: absolute;
+			top :50%;
+			margin-top: -25px;
+			width :20px;
+			height :50px;
+			background: #f40;
+			z-index :999999;
+			text-align: center;
+			line-height: 50px;
+			opacity :0.4;
+			color :#fff;
+			font-weight: bold;
+			cursor :pointer;
+		}
+		.pLeft{
+			left :0px;
+		}
+		.pRight{
+			right :0px;
+		}
+		div:hover p{
+			opacity :0.8;
+		}
+	</style>
+</head>
+<body>	
+	<div>
+		<p class="pLeft">&lt;</p>
+		<p class="pRight">&gt;</p>
+		<ul class="sliderPage">  
+			<li><img src="img/01.jpg" alt=""></li>
+			<li><img src="img/02.jpg" alt=""></li>
+			<li><img src="img/03.jpg" alt=""></li>
+			<li><img src="img/01.jpg" alt=""></li>
+		</ul>
+		<div class="sliderIndex">
+			<span class="active"></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<script type="text/javascript">
+			var timer = null;
+	    	var sliderPage = document.getElementsByClassName('sliderPage')[0];
+			var moveWidth = sliderPage.children[0].offsetWidth;
+			var num = sliderPage.children.length - 1;
+			var leftBtn = document.getElementsByClassName('pLeft')[0];
+			var rightBtn = document.getElementsByClassName('pRight')[0];
+			var lock = true;
+			var index = 0;
+			var oSpanArray = document.getElementsByClassName('sliderIndex')[0].getElementsByTagName('span');
+			function autoMove(direction){
+				if(lock){
+					lock = false;
+					clearTimeout(timer);
+					if(!direction || direction == 'left->right'){
+						index ++;
+						changeIndex(index);
+						startMove(sliderPage,{left:sliderPage.offsetLeft - moveWidth},function(){
+							if(sliderPage.offsetLeft == -num * moveWidth){
+							  sliderPage.style.left = '0px';
+							  index = 0;
+							}
+							timer = setTimeout(autoMove,1500);
+							lock = true;
+						});
+					}else if(direction == 'right->left'){
+						index --;
+						if(sliderPage.offsetLeft == 0){
+							sliderPage.style.left = -num * moveWidth + 'px';
+							index = num -1;
+						}
+						changeIndex(index);
+						startMove(sliderPage,{left:sliderPage.offsetLeft + moveWidth},function(){
+							timer = setTimeout(autoMove,1500);
+							lock = true;
+						})
+					} 
+				}
+			}
+
+			function changeIndex(index){
+				for(var i = 0 ; i < oSpanArray.length; i++){
+					oSpanArray[i].className = ' ';
+				}
+				index = index >= 3 ? 2 : index;
+				oSpanArray[index].className = 'active';
+			}
+
+			leftBtn.onclick = function(){
+				autoMove('right->left');
+			}
+			rightBtn.onclick = function(){
+				autoMove('left->right');
+			}
+
+
+			for(var i = 0; i <oSpanArray.length; i++){
+				(function(myIndex){
+					oSpanArray[i].onclick = function(){
+						if(lock){
+							lock = false;
+							clearTimeout(timer);
+							index = myIndex;
+							changeIndex(index);
+							startMove(sliderPage,{left: -index * moveWidth},function(){
+									timer = setTimeout(autoMove,1500);
+									lock = true;
+							});
+						}
+					}
+
+				}(i));
+			}
+
+			timer = setTimeout(autoMove,1500)
+
+
+			// HTMLDivElement.prototype.createTurnPage = function(['1.jpg','2.jpg','3.jpg']){
+
+			// }
+
+			// oDiv.createTurnPage(['1.jpg','2.jpg','3.jpg']);
+
+
+	</script>
+</body>
+</html>

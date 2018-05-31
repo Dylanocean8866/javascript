@@ -1,0 +1,148 @@
+BOM{
+	window javaScript  层级中的顶层对象，表示浏览器窗口
+	Navigator 包含客户端浏览器的信息
+	Histroy   包含了浏览器窗口访问过的URL
+	Location  包含了当前的URL信息
+	Screen    包含客户端显示屏的信息
+}
+
+window{
+		alert  confirm('s')
+		close(); 可关闭当前的window
+		moveBy  相对当前窗口，移动指定的像素   
+		window.open('url','','width=100,height=100')
+		print();
+		prompt();
+		moveTo(200,200);
+		window.scrollBy(100,100);	
+		window.scrollTo(300,300);
+		innerHeight  innerWidth  文档显示区的宽 高
+		window.name = 'aa';   可以设置window的name
+		window.outHight   window.outWidth 包括地址栏
+		pageXOffset     pageYOffset
+		parent   遮掩的方式可以找到父窗口的window window.parent.a
+		parent.parent.parent    如果有多层嵌套，可以通过 window.top 获取最上层的parent   这两种获取方式都需要满足  同源的条件
+
+		screenLeft  screenTop      获取窗口举例屏幕左边，跟顶部距离
+		只读整数，声明了窗口的左上角的屏幕的X坐标Y坐标  IE safari  chrome 和opera支持 screenLeft   screenTop  而 Firefox 和safari支持 screenX 和 screenY
+		}
+Navigator{
+		appName  返回浏览器的名称
+		appCodeName    
+		appVersion    版本
+		browserLanguage  语言
+		cookieEnabled  是否允许浏览器缓存数据
+		online  判断网络是否连接      离线加载缓存数据比较多
+		userAgent  返回客户机发送服务器的user-agent头部的值
+		plugins    客户端安装的插件集合
+		javaEnable  判断浏览器是否启用并支持java
+		taintEnable  浏览器是否启用数据五点（data  tainting）
+}
+
+Histroy{
+	    length  返回浏览器历史记录中的URL数量
+	    .back() 回退
+	    .forward()前进
+	    .go(-1)  指定前进， 回退几个页面
+}
+location{
+		hash 
+		host  主机名
+		hostname 主机名
+		port  端口
+		href  完成的URL
+		pathName  除了根域名的路径
+		protocol  协议   HTTPS   http
+		search    获取从问好后面的参数
+		assign  加载新文档对象
+		reload('force')  重新刷新 ，如果不写参数，获取缓存内容
+		replace    新文档替换当前文档
+}
+Screen{
+		screen.avaliheight  返回显示屏幕的高度（除window任务栏之外）
+		avaliwidth   返回显示屏的宽度（除window任务栏之外）
+}
+
+
+
+
+Doctype{ 
+	document.compatMode   查看是恶化呢么模式 CSS1compat：标准模式   BackCompat  怪异模式   盒子模型解析不同padding border       
+	span在怪异模式下也可以设置宽度， 高度
+	margin:0 auto;   iE6  怪异模式不支持居中
+	DDT  文档解析规范
+}
+
+lable标签的使用{
+	<lable  for='demo' >username </lable>
+	<input id='demo'  type='text'>     这样当鼠标点击lable也可以触发focus在input
+}
+
+
+属性的操作{
+	setAttribute   getAttribute    设置跟获取html对象先天没有的属性 先天有的叫特性
+	其他叫属性
+}
+
+图片加载方式{
+	图片预加载
+	var  OImg = new Image();
+	OImg.src = 'xxx';
+	oImg.onload = function(){
+		document.body.appendChild(oImg);
+	}
+	图片懒加载
+	当滚动条滚动相对的位置开始加载    
+ 	<button>getImage</button>
+ 	<script>
+ 	  	var btn = document.getElementsByTagName('button')[0];
+ 	  	btn.onclick = function(){
+			var  OImg = new Image();
+				OImg.src = 'xxx';
+				oImg.onload = function(){
+				document.body.appendChild(oImg);
+			}
+ 	  	}
+ 	</script>
+
+	预加载和懒加载 案例：淘宝首页的图片
+}
+
+
+随机数{
+	
+	随机数 Math.random()   (0-1]  生成一个0-1 左闭右开的随机数
+	math.floor(Math-random());   向下取整
+
+	随机生成任意范围内的随机数 math.floor(Math-random()*3+2)   从数组中第二个开始，向后三个， 随机取
+
+	DOMTree + cssTree = Reder Tree
+}
+
+
+文档碎片{
+	操作DOM  添加到页面， 不消耗过多的资源
+
+	var  ul = document.getElementsByTagName('ul')[0];
+	
+	var  ofrag = document.createDocumentFragment();
+	for(var i =0 ; i<=10000; i++){
+		var  uOl = document.createElement('li');
+		uOl.innerText = i;
+		document.body.appendChild(uOl);
+	}
+	ul.appendChild(ofrag);
+
+	字符串的方式也可以
+}
+
+cdn缓存服务器{
+	
+}
+
+
+Debug{
+	debugger;    打断点
+	console.log() 打印是否执行到某个位置之前是否出错
+	控制台也可以直接打断点
+}

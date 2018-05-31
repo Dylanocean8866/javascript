@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		*{
+			margin :0px;
+			padding :0px;
+			list-style: none;
+		}
+		div{
+			width: 100%;
+
+			/*overflow: hidden;*/
+			margin-top:20px;
+		}
+		div ul {
+			position: relative;
+			width: 500px;
+			margin:0px auto 0px auto;
+
+		}
+		div ul li.nav{
+			float:left;
+			width: 98px;
+			height: 50px;
+			text-align :center;
+			line-height :50px;
+			border:solid #000 1px;
+			cursor:pointer;
+		}
+		div ul li.bg{
+			background: #f40;
+			width: 100px;
+			height: 52px;
+		    opacity: 0.5;
+		    position: absolute;
+		    left :0px;
+		    top :0px;
+		    cursor :pointer;
+
+		}
+
+	</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li class="nav">首页</li>
+			<li class="nav">内容1</li>
+			<li class="nav">内容2</li>
+			<li class="nav">内容3</li>
+			<li class="nav">内容4</li>
+			<li class="bg"></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+
+		var liArr = Array.prototype.slice.call(document.getElementsByClassName('nav'),false);
+		var bgObg = document.getElementsByClassName('bg')[0];
+		liArr.forEach(function(ele,index){
+			ele.onmouseenter = function(){
+				var oLeft = this.offsetLeft;
+				startMove(bgObg,oLeft);
+			}
+		});
+		
+
+	 	function startMove(obj,target){
+	 		clearInterval(obj.timer);
+	 		var speed = 20,
+	 			a,
+	 			cur,
+	 			u = 0.8;
+
+	 		obj.timer = setInterval(function(){
+	 			cur = parseInt(obj.offsetLeft);
+	 			a = (target - cur) / 5;
+	 			speed = (speed + a) * u;
+
+	 			if(Math.abs(speed) < 1 && Math.abs(target - obj.offsetLeft) <= 1){
+	 				obj.style.left = target + 'px';
+	 				clearInterval(obj.timer);
+	 			}else{
+	 				obj.style.left = cur + speed + 'px';
+	 			}
+
+	 		},30);
+	 	}
+
+
+	</script>
+</body>
+</html>

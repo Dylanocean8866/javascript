@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<div>
+		<span>
+			<i></i>
+		</span>
+		<strong></strong>
+	</div>
+
+	<script type="text/javascript">
+		var objI = document.getElementsByTagName('span')[0];
+		function retEle(ele,n){
+				for(var i = 0; i < n; i++){
+					 if(ele)
+					 ele = ele.parentNode;
+				}
+			return ele;
+		}
+		console.log(retEle(objI,5));
+	</script>
+</body>
+</html>

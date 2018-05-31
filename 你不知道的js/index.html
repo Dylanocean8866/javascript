@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width :100px; 
+			height :100px;
+			background: #f30;
+		}
+	</style>
+</head>
+<body>
+	<!-- <div>0</div> -->
+	<input id='info' type="text">
+
+	<script type="text/javascript">
+		// Function.prototype.newBind = function(target){
+		// 	target = target || window;
+		// 	var self = this;
+		// 	var args = [].slice.call(arguments,1);
+
+		// 	return function(){
+		// 	  var _arg = [].slice.call(arguments,0)	
+		// 	  return self.apply(target,args.concat(_arg))
+		// 	}
+		// }
+
+		// var newShow = show.newBind();
+		// newShow('haiyang',18);
+		// // console.log(newShow('haiyang',23));
+
+		// var value = 0; 
+		// var obj = {
+		// 	value :1
+		// }
+		// function show(name,age){
+		// 	console.log(this.value);
+		// 	console.log(name,age);
+		// 	return name + age + this.value;
+		// }
+
+		// var list =  {
+		// 	init : function(){
+		// 		this.message = 'hello';
+		// 		this.bindEvent();
+		// 	},
+		// 	bindEvent : function(){
+		// 		var div = document.getElementsByTagName('div')[0];
+		// 		div.onclick = this.show.bind(this);
+		// 	},
+		// 	show :function(e){
+		// 		console.log(e.target,this);
+		// 	}
+		// }
+		// list.init();
+		// console.time('first');
+		// console.timeEnd('first');
+
+
+
+
+		// var count = 0;
+		// var cache = [];
+		// function jc(n){
+		// 	if(n == 0 || n == 1){
+		// 		return 1;
+		// 	}
+		// 	return  n * jc(n - 1);
+		// }
+		// function memorize(fn){
+		// 	var cache = {};
+		// 	return function(){
+		// 		var key = arguments.length + Array.prototype.join.call(arguments);
+		// 		console.log(key);
+		// 		if(cache[key]){
+		// 			return cache[key];
+		// 		}else{
+		// 			cache[key] =  fn.apply(this,arguments);
+		// 			return cache[key];
+		// 		}
+		// 	}
+		// }
+		// var newF = memorize(jc);
+		// console.time('fir');
+		// console.log(newF(6));
+		// console.timeEnd('fir');
+		// console.time('se');
+		// console.log(newF(6));
+		// console.timeEnd('se');
+		// console.time('th');
+		// console.log(newF(6));
+		// console.timeEnd('th');
+
+		// var div = document.getElementsByTagName('div')[0];
+		// function throttle(handler,wait){
+		// 	var lastTime = 0; 
+		// 	return function(e){
+		// 		var nowTime = new Date().getTime();
+		// 		if(nowTime - lastTime > wait){
+		// 			handler.apply(this,arguments);
+		// 			lastTime = nowTime;
+		// 		}
+		// 	}   
+		// }
+		// function buy(e){
+		// 	console.log(this,e);
+		// 	div.innerText =  parseInt(div.innerText) + 1;
+		// }
+		// div.onclick = throttle(buy,1000);
+
+
+		// var oInput = document.getElementById('info');
+		// function ajax(){
+		// 	console.log(this.value);
+		// }
+
+		// function debounce(handler,delay){
+		// 	var timer = null;
+		// 	return  function(){
+		// 		var _sef = this;
+		// 		var _arg = this.arguments;
+		// 		clearTimeout(timer);
+		// 		timer = setTimeout(function(){
+	    // 		  ajax.apply(_sef,_arg);
+		// 		},delay);
+		// 	}
+		// }
+		// oInput.oninput = debounce(ajax,1000);
+
+		
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<script type="text/javascript">
+		
+	var arr = [
+		{name : 'zhao' ,age : 30},
+		{name : 'qian' ,age : 20},
+		{name : 'sun' ,age : 10}
+	];
+
+	Array.prototype.myMap = function(fn){
+		var arr1 = [];
+		for(var i = 0; i < this.length; i++){
+			arr1.push(fn(this[i],i,this));
+		}
+		return arr1;
+	}	
+
+	var arr1 = arr.myMap(function(ele,index){
+		return ele.name + 10; 
+	})
+
+	console.log(arr1);
+
+</script>
+</body>
+</html>

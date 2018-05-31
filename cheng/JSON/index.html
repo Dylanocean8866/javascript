@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var obj = {
+			name :'abc',
+			age : 123
+		}
+		// 对象构建成字符串传到后台
+		var obj1 = JSON.stringify(obj);
+		console.log(obj1);
+		 // 拿到后台的字符串解析成对象
+		var obj2 = JSON.parse(obj1); 
+		console.log(obj2);
+
+
+
+		
+	</script>
+</body>
+</html>

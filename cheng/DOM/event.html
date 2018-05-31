@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width :100px;
+			height :100px;
+			background :red;
+		}
+		input{
+			width: 300px;
+			height: 20px;
+		}
+	</style>
+</head>
+<body>
+<!--<div></div>
+	<a href="javascript:void(0)">baidu</a>
+ -->
+<!-- 	<input style="color:#424242;" type="text" value='请输入用户名' onfocus='if(this.value=="请输入用户名"){this.value = ""}' onblur='if(this.value==""){this.value="请输入用户名"}' > -->
+
+	<script type="text/javascript">
+		var div = document.getElementsByTagName('div')[0];
+		window.onscroll = function(){
+			console.log(window.pageXOffset + ' '+ window.pageYOffset)
+		}
+		// 绑定事件方法
+		// Element.prototype.addEvent = function(state,fun){
+		// 	if(this.addEventListener){
+		// 		this.addEventListener('' + state,fun,false);
+		// 	}else if(this.attachEvent){
+		// 		//如果这里不是在原型上变成， 需要用fun.call(ele); 这样this就能被指向到调用的元素
+
+		// 		this.attachEvent('on' + state,fun,false);
+		// 	}else{
+		// 		this['on' + type] = fun;
+		// 	}
+		// }
+
+		// function test(){
+		// 	alert(this);
+		// }
+
+		// div.addEvent('click',test);
+		// 解决绑定事件
+		// 1.如果是直接绑定的， div.onlick = null 可以解除绑定
+		// 2.通过addEventListener  attachEvent绑定  如下解除
+		// div.removeEventListener('onlick',test,false);
+		// div.detachEvent('on' + type,fn);
+
+
+		// 取消事件冒泡      
+		// event.stopPropagation();
+		// event.cancelBubble = true;
+		// function stopBubble(e){
+		// 	if(e.stopPropagation){
+		// 		e.stopPropagation();
+		// 	}else{
+		// 		e.cancleBubble = true;
+		// 	}
+		// }
+		// document.onclick = function(){
+		// 	console.log('b');
+		// }
+		// div.onclick = function(e){
+		// 	stopBubble(e);
+		// 	console.log('a');
+		// }
+
+		// function  cancelHandler(e){
+		// 	if(e.preventDefault){
+		// 		e.preventDefault();
+		// 	}else{
+		// 		e.returnValue();
+		// 	}
+		// }
+
+		// document.oncontextmenu = function(e){
+		// 	    // 阻止默认事件
+		// 		// return false;   句柄的方式绑定事件才可以 
+		// 		// e.preventDefault();  这是addEventListener的方式阻止默认方式
+		// 		// e.returnValue = false; 兼容IE的方式
+		// 		cancelHandler(e);
+		// 		console.log('a');
+		// }
+
+		// var aLink = document.getElementsByTagName('a')[0];
+		// var firstTime,
+		//     lastTime
+		//     key = false;
+		// aLink.onmousedown = function(e){
+		// 	firstTime = new Date();
+		// }
+		// aLink.onmouseup = function(e){
+		// 	lastTime = new Date();
+		// 	if(lastTime.getTime() - firstTime.getTime() <300){
+		// 			key = true;
+		// 	}
+		// }
+
+
+		// aLink.onclick = function(){
+		// 	if(key){
+		// 		window.location.href = 'https://www.baidu.com'
+		// 	}
+		// }
+		// 移动端的相对应的事件 touchstart   touchmove  touchend
+		// document.onkeydown = function(e){
+		// 	console.log(String.fromCharCode(e.charCode)); 
+		// }
+		// document.onkeyup = function(e){
+		// 	console.log(String.fromCharCode(e.charCode));
+		// }
+		// document.onkeypress = function(e){
+		// 	console.log(String.fromCharCode(e.charCode));
+		// }
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		*{
+			margin :0px;
+			padding :0px;
+			list-style: none;
+		}
+		div{
+			height :100px;
+			width :100px;
+			background :#ccc;
+			position: absolute;
+			top :0px;
+			left :0px;
+			cursor :pointer;
+			border-radius :50%;
+		}
+		span{
+			height: 100px;
+			width: 1px;
+			background: #f40;
+			position: absolute;
+			top: 0px;
+			left :300px;
+		}
+
+	</style>
+</head>
+<body>
+	<div></div> 
+	<script type="text/javascript">
+		var objDiv = document.getElementsByTagName('div')[0];
+		var lastLeft = objDiv.offsetLeft;
+		var lastTop = objDiv.offsetTop;
+		objDiv.onmousedown = function(e){
+			var event = e || window.event;
+			var disX = event.clientX - this.offsetLeft;
+			var disY = event.clientY - this.offsetTop;
+			var that = this;
+
+			document.onmousemove = function(e){
+				console.log(e.clientX + ' ' + disX)
+				var newLeft = e.clientX - disX;
+				var newTop = e.clientY - disY;
+
+				var speedX = newLeft - lastLeft;
+				var speedY = newTop - lastTop;
+
+				lastLeft = newLeft;
+				lastTop = newTop;
+
+				console.log(speedX + ' ' + speedY);
+				startMove(that,speedX,speedY);
+
+
+				// that.style.left = newLeft + 'px';
+				// that.style.top = newTop + 'px';
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmousedown = null;
+			}
+
+		}
+
+		// var objDiv = document.getElementsByTagName('div')[0];
+		// objDiv.onmouseleave = function(){
+		// 	startMove(this);
+		// }		
+		function startMove(obj,xS,yS){
+			clearInterval(obj.timer);
+		   var  xSpeed = xS,
+				ySpeed = yS,
+				leftCur,
+				topCur,
+				g;
+			obj.timer =  setInterval(function(){
+				g = 2;
+				ySpeed = ySpeed + g;
+				console.log(ySpeed + ' ' + xSpeed);
+				leftCur = parseInt(obj.offsetLeft + xSpeed);
+				topCur = parseInt(obj.offsetTop + ySpeed);
+				if(topCur >= (document.documentElement.clientHeight - obj.offsetHeight)){
+					ySpeed *= -1;
+					xSpeed *= 0.8;
+					ySpeed *= 0.8;
+					topCur = (document.documentElement.clientHeight - obj.offsetHeight);
+				}else if(topCur <= 0){
+					ySpeed *= -1;
+					topCur = 0;
+					xSpeed *= 0.8;
+					ySpeed *= 0.8;
+				}else if(leftCur >= (document.documentElement.clientWidth - obj.offsetWidth)){
+					xSpeed *= -1;
+					xSpeed *= 0.8;
+					ySpeed *= 0.8;
+					leftCur = (document.documentElement.clientWidth - obj.offsetWidth);
+			
+				}else if(leftCur <= 0){
+					xSpeed *= -1;
+					leftCur = 0;
+					xSpeed *= 0.8;
+					ySpeed *= 0.8;
+				}
+
+				if(Math.abs(ySpeed) <= 1 && Math.abs(document.documentElement.clientHeight - obj.offsetHeight) == obj.offsetTop){
+					clearInterval(obj.timer);
+					console.log('over');
+
+				}else if(Math.abs(xSpeed) <= 1 && Math.abs(document.documentElement.clientWidth - obj.offsetWidth) == obj.offsetLeft){
+					clearInterval(obj.timer);
+					console.log('over');
+
+				}else{
+				 	obj.style.left = leftCur  + 'px';
+				 	obj.style.top = topCur + 'px';	
+				}
+
+			},30);
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		   // var objStr = Object.prototype.toString,
+		   //      targetStr = typeof(target),
+		   //      typeStr = {
+		   //      	"[object Object]" : "object - Object",
+		   //      	"[object Array]" : "object - Array",
+		   //      	"[object Boolean]" : "object - Boolean",
+		   //      	"[object String]" : "object - String",
+		   //      	"[object Number]" : "object - Number"
+		   //      } 
+		   //    if(target == null){
+		   //    		return null;
+		   //    }
+
+		   function reType(target){
+
+		   		var toStr = Object.prototype.toString, 
+		   			targetStr = typeof(target),
+		   			typeStr = {
+			        	"[object Object]" : "object - Object",
+			        	"[object Array]" : "object - Array",
+			        	"[object Boolean]" : "object - Boolean",
+			        	"[object String]" : "object - String",
+			        	"[object Number]" : "object - Number"
+		   			}
+		   		if(target == null){
+		   			return null
+		   		}else if(targetStr === 'function'){
+		   			return 'function';
+		   		}else if(targetStr != 'object'){
+		   			return targetStr;
+		   		}else {
+		   			return typeStr[toStr.call(target)];
+		   		}
+		   }
+
+
+
+	</script>
+</body>
+</html>

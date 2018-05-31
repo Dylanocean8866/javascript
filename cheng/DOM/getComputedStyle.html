@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	div{
+		width :100px;
+		height :100px;
+		background: #f40;
+	}
+	div::before{
+		content : '';
+		height : 50px;
+		width :50px;
+		background :green;
+		display: inline-block;
+	}
+</style>
+<body>
+<div>
+	
+</div>
+<script type="text/javascript">
+	function getStyle(elem,prop){
+		if(window.getComputedStyle){
+			return window.getComputedStyle(elem,null)[prop];
+		}else{
+			return elem.currentStyle[prop];
+		}
+	}
+	var div = document.getElementsByTagName('div')[0];
+	console.log(getStyle(div,'marginTop'));
+</script>
+
+
+</body>
+</html>

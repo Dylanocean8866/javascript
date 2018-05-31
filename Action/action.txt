@@ -1,0 +1,387 @@
+/*
+* 初级运动效果
+*/
+	var oDiv = document.getElementsByTagName('div')[0];
+	var btn = document.getElementsByTagName('button')[0];
+	var timer;
+
+	startMove(oDiv);
+
+	function startMove(obj){
+		var speed;
+		clearInterval(timer);
+		timer = setInterval(function(){
+
+			obj.style.left = obj.offsetLeft + speed + 'px';
+			if(obj.offsetLeft <= 0){
+					speed = 8;
+			}
+			if(obj.offsetLeft >= 600){
+					speed = -8;
+			}
+
+
+		},20);
+
+	}
+
+/*
+* 匀速运动
+*/
+
+var wrap = document.getElementsByTagName('div')[0];
+var timer;
+wrap.onmouseenter = function(){
+	clearInterval(timer);
+	starMove(wrap,0);
+}
+wrap.onmouseleave = function(){
+	clearInterval(timer);
+	starMove(wrap,-300);
+}
+function starMove(obj,pos){
+	
+	var speed;
+
+	timer = setInterval(function(){
+		speed = (pos - obj.offsetLeft) / 7;
+		speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+		if(obj.style.left == pos){
+			clearInterval(timer);
+		}else{
+			obj.style.left = obj.offsetLeft + speed + 'px';
+		}
+
+	},10);
+}
+
+
+
+
+
+/*
+	获得属性可计算值
+*/
+
+function getStyle(obj,attr){
+
+	if(obj.currentStyle){
+		return obj.currentStyle[attr];
+	}else{
+		return window.getComputedStyle(obj,false)[attr];
+	}
+
+}
+
+
+/*
+	控制元素透明度
+*/
+
+function getStyle(obj,attr){
+
+	if(obj.currentStyle){
+		return obj.currentStyle[attr];
+	}else{
+		return window.getComputedStyle(obj,false)[attr];
+	}
+}
+
+var wrap = document.getElementsByTagName('div')[0];
+var timer;
+var target;
+wrap.onclick = function(){
+	target = 20;
+	startMove(this,target);
+}
+function startMove(obj){
+	clearInterval(timer);
+	var speed;
+	var cur;
+	timer = setInterval(function(){
+		    cur = parseFloat(getStyle(obj,'opacity')) * 100;
+		    if(cur <= target){
+		    	clearInterval(timer);
+		    }
+			speed = (target - cur) / 7;
+			speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+			obj.style.opacity = (cur + speed)/100;
+			console.log(obj.style.opacity );
+	},30);
+}
+
+
+
+/
+*多方块运动， 关闭对应的定时器， 互不影响
+*
+/
+
+function getStyle(obj,attr){
+
+	if(obj.currentStyle){
+		return obj.currentStyle[attr];
+	}else{
+		return window.getComputedStyle(obj,false)[attr];
+	}
+}
+
+var divs = document.getElementsByTagName('div');
+for(var i = 0; i < divs.length; i++){
+	divs[i].onmouseenter = function(){
+		startMove(this,300);
+	}
+	divs[i].onmouseleave = function(){
+		startMove(this,100);
+	}
+}
+function startMove(obj,num){
+	clearInterval(obj.timer);
+	var speed;
+	var cur ;
+ 	obj.timer = setInterval(function(){
+		cur =  parseInt(getStyle(obj,'width'));
+		if(cur === num){
+			clearInterval(obj.timer);
+		}
+		speed = (num - cur) / 7;
+		speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+	    obj.style.width = cur + speed + 'px';
+	},10);
+}
+
+
+
+/*
+	多个方块， 多个属性之前的运动，  width  height  borderWidth  opacity
+*/
+
+function getStyle(obj,attr){
+
+	if(obj.currentStyle){
+		return obj.currentStyle[attr];
+	}else{
+		return window.getComputedStyle(obj,false)[attr];
+	}
+}
+
+var divs = document.getElementsByTagName('div');
+divs[0].onmouseenter = function(){
+	startMove(this,400,'width');
+
+}
+divs[0].onmouseleave = function(){
+	startMove(this,100,'width')
+}
+
+divs[1].onmouseenter = function(){
+	startMove(this,400,'height');
+
+}
+divs[1].onmouseleave = function(){
+	startMove(this,100,'height')
+}
+
+divs[2].onmouseenter = function(){
+	startMove(this,100,'borderWidth');
+
+}
+divs[2].onmouseleave = function(){
+	startMove(this,0,'borderWidth')
+}
+
+divs[3].onmouseenter = function(){
+	startMove(this,30,'opacity');
+
+}
+divs[3].onmouseleave = function(){
+	startMove(this,100,'opacity')
+}
+
+
+function startMove(obj,num,attr){
+	clearInterval(obj.timer);
+	var speed;
+	var cur ;
+ 	obj.timer = setInterval(function(){
+ 		if(attr == 'opacity'){
+ 			cur = parseFloat(getStyle(obj,attr)) * 100;
+ 			speed = (num - cur) / 7;
+ 			speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+ 			obj.style.opacity = (cur + speed) / 100; 
+
+ 		}else{
+ 			cur = parseInt(getStyle(obj,attr));
+ 			speed = (num - cur) / 7;
+ 			speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+ 			obj.style[attr] = cur + speed + 'px';
+
+ 		}
+	},30);
+}
+
+
+
+
+
+/*
+	链式运动效果，callback执行下一个，给方块多属性执行运动
+*/
+	function getStyle(obj,attr){
+
+		if(obj.currentStyle){
+			return obj.currentStyle[attr];
+		}else{
+			return window.getComputedStyle(obj,false)[attr];
+		}
+	}
+
+	var divs = document.getElementsByTagName('div');
+	var attrArr = {
+		width : 200,
+		height : 200,
+		borderWidth :10,
+		opacity : 30
+	}
+	divs[0].onmouseenter = function(){
+			startMove(this,attrArr,function(){
+                startMove(divs[1],attrArr);
+			});
+	}
+
+	function startMove(obj,json,callback){
+		var speed,
+			cur,
+			bStop = true;
+		obj.timer = setInterval(function(){
+			for(attr in json){
+				if(attr == 'opacity'){
+					cur = parseFloat(getStyle(obj,attr)*100);
+				}else{
+					cur = parseInt(getStyle(obj,attr));
+				}
+				speed =(json[attr] - cur) / 7 ;
+				speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+				if(attr == 'opacity'){
+					obj.style[attr] = (cur + speed) / 100;
+				}else{
+					obj.style[attr] = cur + speed + 'px';
+				}
+
+				if(cur != json[attr]){
+					bStop = false;
+					console.log(bStop);
+				}else{
+					bStop = true;
+					console.log(bStop);
+				}
+			}
+			if(bStop){
+				clearInterval(obj.timer);
+				typeof callback == 'function' ? callback() : '';
+			}
+		},30);
+
+	}
+
+
+/*
+  加速运动
+*/
+
+
+var divObj = document.getElementsByTagName('div')[0];
+ 	var target = 0;
+ 	divObj.onmouseenter = function(){
+ 		target = 0;
+ 		startMove(this,target);
+ 	}
+
+
+ 	function startMove(obj,target){
+ 		clearInterval(obj.timer);
+ 		var speed = 20,
+ 			a = 3,
+ 			cur;
+ 		obj.timer = setInterval(function(){
+ 			cur = parseInt(obj.offsetLeft);
+
+ 			if(cur > 300){
+ 				speed = speed - a;
+ 			}else{
+ 				speed = speed + a;
+ 			}
+
+ 			obj.style.left = cur + speed + 'px';
+
+ 		},30);
+ 	}
+
+
+ /
+ *
+ * 模拟皮筋末端扣着球，以木板中间的钉为中心，模拟X方向，球被拉拽， 运动的规律， 
+ * 这里主要通过 皮筋距离钉子的距离除以一个数，控制加速度的大小， 越远加速度越大， 越近
+ * 加速度越小 ，反方向一样
+ */
+
+ 	var divObj = document.getElementsByTagName('div')[0];
+	var target = 0;
+	divObj.onmouseenter = function(){
+		target = 0;
+		startMove(this,target);
+	}
+
+
+	function startMove(obj,target){
+		clearInterval(obj.timer);
+		var speed = 20,
+			a = 0,
+			cur;
+		obj.timer = setInterval(function(){
+			cur = parseInt(obj.offsetLeft);
+
+			a = (300 - cur) / 15;
+
+			speed = speed + a;
+			console.log(speed);
+
+			obj.style.left = cur + speed + 'px';
+
+		},30);
+	}
+
+
+/*
+*   弹性运动 ， 加上阻力，最后停止
+*/
+var divObj = document.getElementsByTagName('div')[0];
+var target = 0;
+divObj.onmouseenter = function(){
+	target = 0;
+	startMove(this,target);
+}
+function startMove(obj,target){
+	clearInterval(obj.timer);
+	var speed = 20,
+		a = 0,
+		cur,
+		u = 0.8;
+	obj.timer = setInterval(function(){
+		cur = parseInt(obj.offsetLeft);
+
+		a = (300 - cur) / 8;
+
+		speed = speed + a;
+		speed = speed * u;
+
+		 // speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+		if(Math.abs(speed) < 1  && Math.abs(300 - cur) < 1){
+			  obj.style.left = 300 + 'px';
+			  clearInterval(obj.timer);
+		}else{
+			obj.style.left = cur + speed + 'px';
+		}
+	},30);
+}

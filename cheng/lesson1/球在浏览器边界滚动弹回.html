@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		*{
+			margin :0px;
+			padding :0px;
+			list-style: none;
+		}
+		div{
+			height :100px;
+			width :100px;
+			background :#ccc;
+			border-radius:50%;
+			position: absolute;
+			top :0px;
+			left :0px;
+			cursor :pointer;
+
+		}
+
+
+	</style>
+</head>
+<body>
+	<div>
+		
+	</div> 
+	<script type="text/javascript">
+		var objDiv = document.getElementsByTagName('div')[0];
+		objDiv.onmouseenter = function(){
+			startMove(this);
+		}
+
+		function startMove(obj){
+			clearInterval(obj.timer);
+
+			var xSpeed = 6,
+				ySpeed = 8;
+
+			obj.timer = setInterval(function(){
+				var newLeft = parseInt(obj.offsetLeft + xSpeed);
+				var newTop = parseInt(obj.offsetTop + ySpeed);
+
+				if(newTop >= (document.documentElement.clientHeight - obj.offsetHeight)){
+					ySpeed *= -1;
+					newTop = (document.documentElement.clientHeight - obj.offsetHeight);
+				}else if(newTop <= 0){
+					ySpeed *= -1;
+				}
+
+
+				if(newLeft >= (document.documentElement.clientWidth - obj.offsetWidth)){
+					xSpeed *= -1;
+					newLeft = document.documentElement.clientWidth - obj.offsetWidth;
+				}else if(newLeft <= 0){
+					xSpeed *= -1;
+				}
+			
+				obj.style.left = newLeft +'px';
+				obj.style.top = newTop + 'px';
+
+
+			},30);
+		}
+	
+	</script>
+</body>
+</html>

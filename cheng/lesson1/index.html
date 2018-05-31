@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		*{
+			margin :0px;
+			padding :0px;
+			list-style: none;
+		}
+		div {
+			width: 621px;
+			height: 204px;
+			overflow: hidden;
+			margin :100px auto auto auto;
+			position: relative;
+		}
+		div ul{
+			overflow: hidden;
+			width: 2484px;
+			height: 204px;
+			position: absolute;
+			top :0px;
+			left :0px;
+		}
+		div ul li{
+			width: 621px;
+			height: 204px;
+			float :left;
+		}
+
+		div ul li img{
+			width: 621px;
+			height: 204px;
+		}
+		p{
+			position: absolute;
+			top :77px;
+			width :20px;
+			height :50px;
+			background: #f40;
+			z-index :999999;
+			text-align: center;
+			line-height: 50px;
+			opacity :0.4;
+			color :#fff;
+			font-weight: bold;
+		}
+		.pLeft{
+			left :0px;
+		}
+		.pRight{
+			right :0px;
+		}
+		p:hover{
+			opacity :0.8;
+		}
+	</style>
+</head>
+<body>	
+
+	<div class="silderIndex">
+		<p class="pLeft">&lt;</p>
+		<p class="pRight">&gt;</p>
+		<ul class="sliderPage">  
+			<li><img src="img/01.jpg" alt=""></li>
+			<li><img src="img/02.jpg" alt=""></li>
+			<li><img src="img/03.jpg" alt=""></li>
+			<li><img src="img/01.jpg" alt=""></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		function getStyle(ele,attr){
+			if(ele.currentStyle){
+				attr = ele.currentStyle[attr];
+			}else{
+				attr = window.getComputedStyle(ele,false)[attr];
+			}
+			return attr;	
+		}
+
+			var timer = null;
+	    	var sliderPage = document.getElementsByClassName('sliderPage')[0];
+			var moveWidth = sliderPage.children[0].offsetWidth;
+			var num = sliderPage.children.length - 1;
+			var leftBtn = document.getElementsByClassName('pLeft')[0];
+			var rightBtn = document.getElementsByClassName('pRight')[0];
+			var lock = true;
+			var index = 0;
+			function autoMove(direction){
+				index ++;
+				if(Math.abs(sliderPage.offsetLeft) == Math.abs(-num * moveWidth)){
+				  sliderPage.style.left = '0px';
+				  index = 0;
+				}
+				startMove(sliderPage,{left:sliderPage.offsetLeft - moveWidth},function(){
+					timer = setTimeout(autoMove,1500);
+					lock = true;
+				});
+			}
+		function startMove(obj,json,callback){
+			clearInterval(obj.timer);
+			var speed,
+				leftCur;
+			obj.timer = setInterval(function(){
+				leftCur = parseInt(obj.offsetLeft);
+				speed = (json['left'] - leftCur) / 7;
+				speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+				if(speed <= 0 && leftCur == json['left']){
+					clearInterval(obj.timer);
+				}else{
+					obj.style.left = leftCur + speed + 'px';
+				}
+			},30);
+			typeof callback == 'function' ? callback() : '';
+		}	
+				timer = setTimeout(autoMove,1500);
+	
+	</script>
+</body>
+</html>

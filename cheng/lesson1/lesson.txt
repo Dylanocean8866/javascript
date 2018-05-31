@@ -1,0 +1,101 @@
+	Mosaic是互联网历史上第一个普遍使用的和能够显示图片的网页浏览器， 于1993年问世
+	Netscape  Navigator  网景公司的 
+	我出生6年后， javascript诞生
+	liveScript  = javaScript      应为市场的问题所以改名为 javaScript
+	浏览器16毫秒闪烁更新一次
+	js引擎   > c>汇编>机器代码
+	V8引擎    直接把javascript代码翻译成底层的机器代码 010101010101     理论上Chrom速度最快
+	FireFox    TranceMonkey  jeagerMonkey  引擎 
+	编译性语言   c c++  
+		通篇翻译  汇总成文件， 系统再执行文件  
+		有点：快
+		不足：移植性不好，(不跨平台)	
+			
+
+	解释性语言    javaScript    php       《解释之前会先通篇扫描下， 语法有没有错误》
+		看一行翻译一行执行一行， 不生成特定的文件
+		有点：跨平台
+		不足：稍微慢
+
+	.java  --javaC -->编译  -->.class  --> jvm  --解释执行
+	 java原来叫 aok语言
+	
+	ECMA     欧洲计算机联盟   javaScript  也叫 ECMASCRIPT
+	DOM    操作文本    BOM  操作浏览器
+
+	javaScript 是单线程编程语言， 但可以模拟多线程   
+	{
+		case:好比页面上两个方块， 点第一个按钮移动第一个方块，点第二个按钮
+			 移动第二个， 问题是为什么同时两个方块在移动， 
+		answer ：因为速度太快， 人眼分不清楚， 其实是单线程   	
+
+		任务1  任务2   全部切割成N个片段， 再把这些片段放在队列当中， 具体哪个先执行就看哪个抢在前面执行
+	}
+		
+	主流浏览器以及其内核{
+		IE				trident
+		Chrome			webkit/blink
+		firefox 		Gecko
+		Opera			Presto
+		Safari			webkit
+	}
+	
+	如果type里面是  text/tpl 可以存放代码，
+	<!-- <script type="text/tpl"></script> -->
+	var a = 10
+	   ,b = 10
+	   ,c = 10
+	   ,d = 10
+	   ,e;    单一var模式
+
+	变量命名规则{
+		1.变量命名必须以英文字母 _ $  开头
+		2.变量名可以包括英文字母_ 、数字
+		3.不可以用系统的关键字、保留字作为变量名
+	}
+	
+	原始值(存放在栈里面 ==firstIn  >  lastOut){  
+		 Number  Boolean  String  undefined null
+		 var test =  function (){}    如果想清空这个test  可以用null值覆盖
+		 javascript 的类型由值决定类型， 因为是解释性语言，    解释一行执行一行
+	}
+
+	引用值(存放在堆里面){
+		array  Object  function    data  RegExp
+	}
+	
+	错误{
+		1.低级错误(语法解析错误)
+		2.逻辑错误(标准错误，情有可原)
+    }
+
+   	运算符{
+   		1.任何东西加字符串， 都等于字符串
+   }
+	{
+		0 / 0 = NAN
+		1 / 0 = Infinity
+		-1 / 0 = -Infinity
+		NaN == NaN      这个非常特殊， 不等于
+		Infinity == Infinity   等于
+		undefined  == undefined   等于
+		undefined  null NaN 0 '' false  => 这些转换成Boolean 都是false
+		[]  {}   	object_array     引用值都是TRUE
+	}
+	 
+	短路语句  &&{  碰到假就停
+		'object_array' && (function(){
+			console.log('a');
+		}())
+	}
+	||  找真的返回	{
+		1 || 2  如果第一个是true  则返回1  不往后面找
+		0 || 1  返回1
+		0 || flase  返回false
+	}
+   
+
+
+
+
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='jquery-3.3.1.js'></script>
+</head>
+<body>
+	<div id="div1">asdfsadf</div>
+	<script type="text/javascript">
+	window.id = 'a';
+	var div = document.getElementById('div1');
+	div.onclick = function(){
+		console.log(this.id);
+		var callback =  function callback(){
+			console.log(this.id);
+		}
+		callback();
+	}
+	</script>
+</body>
+</html>          

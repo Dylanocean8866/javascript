@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 反斜杠有转义的用处， 消除来的符号的作用 
+		// console.log('aasdf\'sad');
+		// 反斜杠n表示换行
+		// console.log('abcksd\nfa')
+		// \r\n 代表回车
+		// console.log('adfdsafs\r\nadf')
+		// 制表符  一个代表一个table 代表4个空格
+		// console.log('adfsad\t\tfsa');
+
+		// 正常这里面我们希望写DOM结构，如下执行就会报错， 但如果再每行后面加上反斜杠转译掉原来的\r\n 就能正常输出
+		// document.body.innerHTML = "\
+		// 	<div></div>\
+		// 	<span></span>\
+		// "
+		// 还有一种办法通过+ 号链接
+		// var str = "<div></div>"
+		// 		+"<span></span>"
+		// document.body.innerHTML = str;
+
+
+		// RegExp  创建有两种方式， 第一是字面量 ，第二种new
+
+		// var reg = /abc/;  //匹配的规则是abc
+		// var str = 'abcd'; // 测验是否还有规定的片段 规定的是abc的片段， 小写， 挨着
+		// console.log(reg.test(str));  //返回true
+		//var reg = /abce/i;   //后面可以加 i 忽视大小写 g 执行全局匹配  m 执行多行匹配    这三个属性可以随机组合
+
+		//var str = 'aBce';   
+		//var reg = new RegExp("abc",'i'); //第二种创建方式,第二个变量可以写 i g m
+
+		// 特殊方式构建
+		// var reg = /abce/m;
+		// var reg1 = new RegExp(reg); // 这里如果把reg传进来  reg  reg1  长的是一样， 但两个对象引用地址不是一个地址
+		// var reg2 = RegExp(reg);  //这种非new的方式处理， reg reg2长的一样， 同时两个对象指向一个房间地址
+
+
+		// var reg = /ab/;   
+		// var str = "ababababab";
+		// console.log(str.match(reg)); // 这里通过字符串的match方法 找到有几个匹配的片段
+
+		// var reg = /ab/g;  //如果这里写g,那么下面通过match会找出所有的匹配片段ab，返回一个数组
+		// var str = "ababababab";
+		// console.log(str.match(reg));
+
+		// var reg = /^ab/gm;// ^以a开头的匹配  这里的m代表多行匹配， 下面添加了\n  那么会另起头ab 那么匹配出来的片段就是两个
+		// var str = 'abab\nabba';
+		// console.log(str.match(reg));
+
+		// 写一个规则，有三个数字在一起的片段，匹配
+		// var reg = /[0-9][0-9][0-9]/g;
+		// var str = 'asdfl;jal2312e2l3jl2342352435lj6345';
+		// console.log(str.match(reg));
+
+		// var reg = /[123456789][123456789][123456789]/g;
+		// var str = 'zsdfdsafsdsdf234adfsafsaf';
+		// console.log(str.match(reg));
+
+		// var reg = /[01][12][34]/g;
+		// var str = 'asfdsfdsafsafsadf123dsafsa';
+		// console.log(str.match(reg));
+
+		// var reg = /[0-9A-z][cd][d]/g;
+		// var str = 'ab1cd';
+		// console.log(str.match(reg));
+
+		// var reg = /^[1-3]/g;	
+		// var str = 'adsfasdfa123sdfsa';
+		// console.log(str.match(reg));
+
+		// 匹配第一位不是a  第二位不是b的都行
+		// var reg = /[^a][^b]/g;
+		// var strn    = 'asdfsadfdsafsadfsadfsad';	
+		// console.log(str.match(reg));
+
+
+
+		// () 加上| 是或者的意思 
+		// var reg = /(abc|bcd)/g;
+		// var str = 'abcdsfdsfbcd';
+		// console.log(str.match(reg));
+
+		// var reg = /(abc|bcd)[0-9]/g;
+		// var str = 'abc1 asdfdasdbcd3fas';
+		// console.log(str.match(reg));
+
+		// var reg = /\tc/g;
+		// var str = 'adfd\tcasdf';
+		// console.log(str.match(reg));
+
+		// 点可以匹配一切， 除了\r\n   也可以用补集 \s\S  \d\D \w\W
+		// var reg = /./g;
+		// var str = '.asdfdsa34453445(*^*^*6';
+		// console.log(str.match(reg));
+
+		// *是0-1  + 是1-N;  n? 0-1
+		// var reg = /\w?/g;	
+		// var str = 'asdfsa23df';
+		// console.log(str.match(reg));
+
+		// var reg =  /\w{1,6}/g;
+		// var str = 'adsfasdf';
+		// console.log(str.match(reg));
+
+		// var reg = /\w{1,}/g;
+		// var str = 'dsafdsafsadf';
+		// console.log(str.match(reg));
+
+		// var reg = /aba$/g;
+		// var str = 'aba';
+		// console.log(str.match(reg));
+
+		// var reg = /^\d|\d$/g;
+		// var str = '1asdfdsaf2';
+		// console.log(str.match(reg));
+
+		// var reg = /^\d[\w\W]*\d$/g;
+		// var str = '1sfdf2';
+		// console.log(str.match(reg));
+
+		// var reg = /ab/g;
+		// var str = 'abbababa';
+		// console.log(reg.lastIndex);
+		// console.log(reg.exec(str));
+
+		// console.log(reg.lastIndex);
+		// console.log(reg.exec(str));
+
+		// console.log(reg.lastIndex);
+		// console.log(reg.exec(str));
+
+		// var str = 'aabbasfadsfssdd';
+		// var reg = /(\w)\1(\w)\2/g;
+		// console.log(reg.exec(str));
+		// console.log(str.match(reg));
+
+		// var str = 'adsfaabbaabb';
+		// var reg = /(\w)\1(\w)\2/g;
+		// console.log(str.search(reg));
+
+		// var str = 'asdfdiisafdsafdsafdsaf';
+		// var reg = /(\w)\1/g;
+		// console.log(str.split(reg));
+
+		// var str = 'aa';
+		// var reg = /(\w)\1/g;
+		// console.log(str.replace(reg,'bb'));
+		
+		// var str = 'aabb';
+		// var reg = /(\w)\1(\w)\2/g;
+		// console.log(str.replace(re,function($,$1,$2){
+		// 	return $2+$2+$1+$1;
+		// }));
+
+
+		// var str = 'the-first-name';
+		// var reg = /-(\w)/g;
+		// console.log(str.replace(reg,function($,$1){
+		// 	return $1.toUpperCase();
+		// }));
+
+
+		// 正向预查， 正向断言  也可以是?!b
+		// var str = 'abaaaaa';
+		// var reg = /a(?=b)/g;
+		// console.log(str.match(reg));
+
+		// 打破贪婪匹配， 加上？有一个绝对不会打印多个   必须写在量词的后面+？
+		// var str = 'abbbbbaaa';
+		// var reg = /b+?/g;
+		// console.log(str.match(reg));
+		// 如果是多个问好 能取0，不取1   如果是*?号也是一样 
+		// var str = 'ababbb';
+		// var reg = /a*?/g;
+		// console.log(str.match(reg));
+
+		// var str = 'aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbcccccccccc';
+		// var reg = /(\w)\1+/g;
+		// console.log(str.replace(reg,'$1'));
+
+
+		// var str = '100000000000';
+		// var reg = /(?=(\B)(\d{3})+$)/g;
+		// // console.log(str.match(reg));
+
+		// console.log(str.replace(reg,function($,$1){
+		// 	return $+'.';
+		// }));
+
+
+
+	</script>
+</body>
+</html>

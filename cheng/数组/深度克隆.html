@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		var obj = {
+			name : 'xiaoming',
+			age : 30,
+			health : 100,
+			smoke : function(){
+				health--;
+			},
+			hobby : ['basktball','tennies','pinpang'],
+			wife : {
+				name :'huhua',
+				son :{
+					name :'xiaoxiao'
+				}
+			}
+		}
+
+		function deepClone(target){
+
+			var target = target || {},
+			    toStr = Object.prototype.toString,
+				objArr = "[object Array]",
+				data = {};
+			for(prop in target){
+				if(typeof target[prop] == 'object'){
+					data[prop] = toStr.call(target[prop]) == objArr ? [] : {};
+					data[prop] = deepClone(target[prop]);
+				}else{
+					data[prop] = target[prop];
+				}
+			}
+			return data;
+
+		}
+
+		var obj1 = deepClone(obj);
+		console.log(obj1)
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		<canvas id = 'can' height = '500px' width = '500px'></canvas>
+		<div id='box'></div>`
+		<script type="text/javascript">
+			var can = document.getElementById('can');
+			var ctx = can.getContext('2d');
+			var box = document.getElementsByTagName('div')[0];
+			CanvasRenderingContext2D.prototype.sector = function(x,y,r,sDeg,eDeg){
+				// 圆形点 半径 角度--> 起始角度，终止角度
+				this.save();
+				this.beginPath();
+				this.moveTo(x,y);
+				//角度-->弧度
+				this.arc(x,y,r,sDeg*Math.PI/180,eDeg*Math.PI/180,false);
+				this.closePath();
+				this.restore();
+				return this; 
+			}
+			var timer;
+			var angle = 0;
+			var per;
+			ctx.fillStyle = 'red';
+			timer = setInterval(function(){
+				angle += 5;
+				ctx.sector(250,250,100,0,angle).fill();
+				per = (5 * angle /18).toFixed(2);
+				box.innerHTML = '加载中:' + per + '%';    
+				if(angle == 360){
+					clearInterval(timer);
+					box.innerHTML = '加载完成';
+				}
+			},10);
+		</script>
+</body>
+</html>

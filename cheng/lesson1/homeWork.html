@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	</style>
+</head>
+<body>	
+	<script type="text/javascript">
+		var obj = {
+			name : 'xiaoming',
+			sex : 'male',
+			hobby :['basktball',['tennies','reading'],'pinpang','fishing'],
+			helth : 100,
+			smoke : function(){
+				helth --;
+			},
+			wife :{
+				name : 'bcd',
+				son :{
+					name : 'aaa'
+				}
+			}
+		}
+		function copy(origin,target){
+			var target = target || {};
+				toStr = Object.prototype.toString,
+				arrStr = "[object Array]";
+			for(prop in origin){
+				if(origin.hasOwnProperty(prop)){
+
+					if(origin[prop] !== 'null' && typeof(origin[prop]) == 'object'){
+					 target[prop] = toStr.call(origin[prop]) == arrStr ? [] : {};
+					 copy(origin[prop],target[prop]);
+					}else{
+						target[prop] =  origin[prop];
+					}
+				}
+			}
+			return target;
+		}
+
+		var obj1 = copy(obj,obj1);
+
+	</script>
+</body>
+</html>

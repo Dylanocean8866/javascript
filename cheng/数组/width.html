@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    "use strict"
+		var obj = {
+			dp1 : {
+				lu :{
+					name : "lu",
+					age : 20
+				},
+				hai :{
+					name :"haiyang",
+					age : 21
+
+				}
+			},	
+			dp2 :{
+
+			}
+		}
+		// 在es5 里面不能用， 因为with方法改变了作用域链，一般不提倡使用 eval
+		with(obj.dp1.hai){
+			console.log(name);
+		}
+	</script>
+</body>
+</html>

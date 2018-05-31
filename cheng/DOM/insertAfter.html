@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<div>
+		<span></span>
+		<strong></strong>
+	</div>
+	<script type="text/javascript">
+		var div = document.getElementsByTagName('div')[0];
+		var i = document.createElement('i');
+		var span = document.getElementsByTagName('span')[0];
+
+		Element.prototype.insertAfter = function(newNode,target){
+			var  tn = target.nextElementSibling;	
+			if(tn){
+				this.insertBefore(newNode,tn);
+			}else{
+				this.appendChild(i);
+			}
+		}
+		div.insertAfter(i,span);
+	</script>
+</body>
+</html>

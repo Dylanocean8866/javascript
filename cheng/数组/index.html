@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		// var arr = [1,3,4,2,0,5,7,10];
+		// Array.prototype.push = function(){
+		// 	for(var i = 0; i <arguments.length; i++){
+		// 		this[this.length] = arguments[i];
+		// 	}
+		// }
+
+		// pop 执行一次，剪切数组的最后一位  传参没用   可以改变原数组
+
+		// shift 从前面减掉一位  unshift 从前面添加一位（可以添加多位）   
+
+		// reverse   把原数组逆转 
+
+		// splice(1,2) 从第N位开始截图  位数 
+
+		// splice(1,2,3,3,5,6,7)  从一开始剪切两位 增加后面的添加的  负数1  倒数第一位
+
+		// sort  数组排序  加上reverse  降序     sort是按照askMA 进行排序
+		//正序 
+		// arr.sort(function(a,b){
+		// 	// return a - b;  正序
+		// 	// return b -a    倒序
+		// 	// return Math.random() - 0.5 ; 随机排序
+		// });
+
+		// var names = ['还勇敢','dd大虾','as','爱情','g']
+		// function reBts(str){
+		// 	var num = str.length;
+		// 	for(var i = 0; i < str.length; i++){
+		// 		num += 1;
+		// 	}
+		// 	return num;
+		// }
+
+		// names.sort(function(a,b){
+		// 	return reBts(b) - reBts(a);
+		// });
+
+		// var arr =[1,2];
+		// var arr1 = [3,4];
+		// arr.concat(arr1);   拼接后返回新数组， 不改变源数组
+
+		// slice(1,2)  从第一位开始截取到第二位  ，不改变原数组，  不写截取个数，从第N位截图到末尾， 如果是负数， -1 是最后一位
+		// 不写就整个截取
+
+		// join('-'); 拼接  split('-') 跟join互逆
+
+		// var a = 'aaa',
+		// 	b = 'bbb',
+		// 	c = 'ccc';
+		// var strArr = [a,b,c];
+		// var str = strArr.join("");   不写“” 按照，链接分隔开始  join是散列处理字符串拼接，比较不错，   如果直接for循环字符串凭借的话， firstIn lastOut   比较折腾，性能不高
+
+		// var arr = {
+		// 	'2' : 'a',
+		// 	'3' : 'b',
+		// 	'length':2,
+		// 	'push':Array.prototype.push
+		// 'splice':Array.prototype.splice    添加splice 对象的外貌跟数组一样
+		// }
+
+		// arr.push('c');
+		// arr.push('d');
+
+		// Array.prototype.push = function(target){
+		// 	this[this.length] = target;
+		// 	this.length ++;
+		// }
+		// Object.prototype.toString.call();
+
+		// function reType(target){
+		// 	var typeStr = typeof(target),
+		// 		toStr = Object.prototype.toString,
+		// 		objStr = {
+		// 			"[object Object]" : "object - Object",
+		// 			"[object Array]" : "array - Object",
+		// 			"[object Number]" : "number - Object",
+		// 			"[object Boolean]" : "boolean - Object",
+		// 			"[object String]" : "string - Object"
+		// 		};
+		// 	if(target == null){
+		// 		return null;
+		// 	}else if(typeStr === 'function'){
+		// 		return 'function';
+		// 	}else if(typeStr !== 'object'){
+		// 		return typeStr;
+		// 	}else{
+		// 		return objStr[toStr.call(target)];
+		// 	}
+		// }
+
+
+		var arr1 =[1,2,3,9,10];
+		var arr2 =[2,5,4,9,10];
+
+		// 思路：1.找出相同的元素， 然后数组排序， 拿出第一个
+		function test(arr1,arr2){
+			var arr = [],
+			      sortArr = [],
+			      arrlLen = arr1.length,
+			      arr2len = arr2.length;
+			for(var i = 0; i < arrlLen; i++){
+				for(var j = 0;  j < arr2len; j++ ){
+					if(arr1[i] == arr2[j]){
+						arr.push(arr1[i]);
+					}		
+				}
+			}
+			sortArr = arr.sort(function(a,b){
+			    return a - b;
+			})
+			return sortArr[0];
+		}
+
+	console.log(test(arr1,arr2));
+
+
+
+
+
+	</script>
+</body>
+</html>

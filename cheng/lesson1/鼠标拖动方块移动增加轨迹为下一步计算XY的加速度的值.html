@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		*{
+			margin :0px;
+			padding :0px;
+			list-style: none;
+		}
+		div{
+			height :100px;
+			width :100px;
+			background :#ccc;
+			position: absolute;
+			top :0px;
+			left :0px;
+			cursor :pointer;
+
+		}
+
+		span{
+			width :1px;
+			height :1px;
+			background :#f40;
+			position: absolute;
+			top :0px;
+			left :0px;
+			border-radius :50%;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div></div> 
+	<script type="text/javascript">
+		var  objDiv = document.getElementsByTagName('div')[0];
+		objDiv.onmousedown = function(e){
+			var event = e || window.event;
+			var disX = event.clientX - this.offsetLeft;
+			var disY = event.clientY - this.offsetTop;
+			var that = this;
+			document.onmousemove = function(e){
+				var newLeft = e.clientX - disX;
+				var newTop = e.clientY - disY;
+				var span = document.createElement('span');
+				document.body.appendChild(span);
+				span.style.left = newLeft + 'px';
+				span.style.top = newTop + 'px';
+				that.style.left = newLeft + 'px';
+				that.style.top = newTop + 'px';
+			}
+			document.onmouseup = function(e){
+				document.onmousemove = null;
+				document.onmousedown = null;
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- defer 不会阻断html下载，和css和html并行下载 达到异步的目的  但只能IE9以下可以用-->
+	<!-- defer的执行时间是等页面全部下载完成后才执行 htmlTree下载完成执行 -->
+	<script type="text/javascript"  src="tools.js" defer='defer'>
+		// 如果上面src不写， 代码写这里也是可以的
+	</script>
+	<!-- async异步加载，加载完就执行， async只能加载外部脚本， 不能把js卸载script标签里 chrome firefox等都可以用 -->
+	<script type="text/javascript" scr='tools.js' async='async'>
+	// 这里不可以写代码
+	</script>
+
+	<script type="text/javascript">
+		// var script = document.createElement('script');
+		// script.type = 'text/javascript';
+		// //实现预加载  异步
+		// script.src = 'demo.js';
+		// //添加到页面，然后才执行
+		// document.head.appendChild(script);	
+
+		// script.onload = function(){
+		// // Safari chrome  firefox  opera   都有这个script.onload方法 ，但是IE 不行
+		// 	test();
+		// }
+		// // IE有自己独有的onreadystate 在script上面， 默认状态是loading 根据script加载的进度， 如果标签加载完，状态修改
+		// // 完之后， 状态变更为complete 或者loaded
+		// script.onreadystatechange = function(){
+		// 	if(script.readyState == 'complete' || script.readyState == 'loaded'){
+		// 		test();
+		// 	}
+		// }
+
+		//按照需要加载js
+		// function loadScript(url,callback){
+		// 	var script = document.createElement('script');
+		// 	script.type = 'text/javascript';
+		// 	// IE有自己独有的onreadystate 在script上面， 默认状态是loading 根据script加载的进度， 如果标签加载完，状态修改
+		// 	// 完之后， 状态变更为complete 或者loaded
+		// 	if(scirpt.readState){
+		// 		script.onreadstatechange = function(){
+		// 			if(script.readState == 'complete' || script.readState == 'loaded'){
+		// 				ccallback();
+		// 			}
+		// 		}
+
+		// 	}else{
+		// 		// Safari chrome  firefox  opera   都有这个script.onload方法 ，但是IE 不行
+		// 		script.onload = function(){
+		// 			callback();
+		// 		}
+		// 	}
+		// 	// 方在这里是防止网速够快js已经被加载，再执行就没有意义了
+		// 	script.src = url;
+		// 	document.head.appedChild(script);
+		// }
+
+		function loadScript(url, callback){
+			var script = document.createElement('script');
+			script.type = 'text/javascript';
+			// 	// IE有自己独有的onreadystate 在script上面， 默认状态是loading 根据script加载的进度， 如果标签加载完，状态修改
+			// 	// 完之后， 状态变更为complete 或者loaded
+			if(script.readState){
+				script.onreadstatechange = function(){
+					if(script.readState == 'complete' || script.readState == 'loaded'){
+						// callback != null ? callback() : null;
+						// eval(callback);
+						tools[callback]();
+					}
+				}
+			}else{
+				script.onload = function(){
+					// callback != null ? callback() : null;
+					// eval(callback);
+					tools[callback]();
+				}
+			}
+		 	// 方在这里是防止网速够快js已经被加载，再执行就没有意义了
+			script.src = url;
+			document.head.appendChild(script);
+		}
+
+		//这里注意直接写test在后面是不执行的， 
+		// loadScript('test.js',function(){
+		// 	test();
+		// })
+		// 也可以通过eval的方式，执行字符串函数
+		// loadScript('test.js','test()');
+
+		//通过对象的方式执行  前提方法是放在对象里面
+		// loadScript('test.js','test')
+	</script>
+</head>
+<body>
+	<div style="width:100px;height:100px;background:red;"><span></span></div>
+	<script type="text/javascript">
+		window.onload = function(){
+			document.write('a');
+		}
+	</script>
+</body>
+</html>

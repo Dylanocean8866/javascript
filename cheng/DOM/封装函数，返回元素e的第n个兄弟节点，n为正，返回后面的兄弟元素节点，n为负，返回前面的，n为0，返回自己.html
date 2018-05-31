@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<span>
+			<i></i>
+		</span>
+		<strong></strong>
+		<b></b>
+	</div>
+	<script type="text/javascript">
+		var strong = document.getElementsByTagName('strong')[0];
+
+		function retSibling(e,n){
+			if(e && n > 0){
+				for(e = e.nextSibling; e && e.nextSibling.nodeType != 1; e.nextSibling);
+				return e.nextSibling
+				// return e.nextSibling.nodeType;
+			}else if(e && n < 0){
+				for(e = e.previousSibling ; e && e.previousSibling != 1; e.previousSibling)
+				return e.previousSibling;
+			}else{
+				return e;
+			} 
+		}
+
+		console.log(retSibling(strong,-1));
+
+
+
+		
+	</script>
+	
+</body>
+</html>

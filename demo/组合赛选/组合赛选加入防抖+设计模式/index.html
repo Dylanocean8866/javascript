@@ -1,166 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style>
-		*{
-			margin :0px;
-			padding :0px;
-			list-style :none;
-		}
-		.wrap{
-			width :600px;
-			height: auto;
-			border :solid #424242 1px;
-			margin:120px auto auto auto;
-		}
-		.wrap>div>span>input{
-			width :200px;
-			height: 30px;
-			display: inline-block;
-			border:solid #424242 1px;
-			margin-left:10px;
-		}
-		.wrap>div>ul {
-			display: inline-block;
-			margin-top:15px;
-		}
-		.wrap>div:first-child ul li {
-			display: inline-block;
-			width :100px;
-			height: 30px;
-			background :#ccc;
-			text-align:center;
-			color:#424242;
-			border-radius:21px;
-			line-height:30px;
-			cursor:pointer;
-		}
-		.content{
-			width:100%;
-		}
-		.content li{
-			height :40px;
-			background :#eee;
-			margin-top:5px;
-		}
-		.content li span{
-			display: inline-block;
-			width :20%;
-			line-height:40px;
-			margin-left:4%;
-		}
-		.active{
-			background:#f40!important;
-			color :#fff!important;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        .wrap {
+            width: 600px;
+            height: auto;
+            border: solid #424242 1px;
+            margin: 120px auto auto auto;
+        }
+
+        .wrap>div>span>input {
+            width: 200px;
+            height: 30px;
+            display: inline-block;
+            border: solid #424242 1px;
+            margin-left: 10px;
+        }
+
+        .wrap>div>ul {
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .wrap>div:first-child ul li {
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            background: #ccc;
+            text-align: center;
+            color: #424242;
+            border-radius: 21px;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .content {
+            width: 100%;
+        }
+
+        .content li {
+            height: 40px;
+            background: #eee;
+            margin-top: 5px;
+        }
+
+        .content li span {
+            display: inline-block;
+            width: 20%;
+            line-height: 40px;
+            margin-left: 4%;
+        }
+
+        .active {
+            background: #f40!important;
+            color: #fff!important;
+        }
+    </style>
 </head>
+
 <body>
-		<div class="wrap">
-			<div>
-				<span>
-						<input id='search' type="" name="">
-				</span>
-				<ul class="filter">
-					<li class="active" sex='all'>all</li>
-					<li sex='male'>male</li>
-					<li sex='fmale'>fmale</li>
-				</ul>
-			</div>	
-			<div>
-				<ul class="content">
-				</ul>
-			</div>
-		</div>
-		<script type="text/javascript">
-			var content = document.getElementsByClassName('content')[0];
-			var search = document.getElementById('search');
-			var filterUl = document.getElementsByClassName("filter")[0];
-			var person = [
-				{img:'img-01',name:'xiaoming',age:20,sex:'male'},
-				{img:'img-02',name:'huahua',age:22,sex:'fmale'},
-				{img:'img-03',name:'xiaohua',age:21,sex:'male'},
-				{img:'img-04',name:'xiaohong',age:18,sex:'fmale'},
-				{img:'img-05',name:'xiaoli',age:19,sex:'male'},
-				{img:'img-06',name:'xiaodan',age:16,sex:'fmale'},
-				{img:'img-07',name:'meimei',age:21,sex:'fmale'},
-				{img:'img-08',name:'longlong',age:16,sex:'fmale'},
-				{img:'img-08',name:'longlong',age:16,sex:'fmale'},
-			];
-
-			function render(arr){
-				content.innerHTML = '';
-				var arr = arr || null;
-				if(arr!=null){
-					arr.forEach(function(ele,index){
-						var li = document.createElement('li');
-						var str = '\
-								 <span>'+ ele.img +'</span><span>'+ ele.name +'</span>\
-								 <span>'+ ele.age +'</span><span>'+ ele.sex +'</span>\
-						';
-						li.innerHTML = str;
-						content.appendChild(li);
-					});
-				}
-			}	
-			render(person);
-
-			search.oninput = function(){
-				state.value = this.value;
-				setTimeout(function(){
-					render(addFn(state,fit,person));
-				},1000);
-			}
-
-			filterUl.addEventListener('click',function(e){
-				var event = e || window.event;
-				var target = event.target || event.srcElement;
-				if(target.tagName == 'LI'){
-					state.sex = target.getAttribute('sex');
-					render(addFn(state,fit,person));
-					document.getElementsByClassName('active')[0].className = '';
-					target.className = 'active';
-				}
-			});
-
-			function filterBySex(sex,arr){
-				var sex = sex || '';    
-			    return arr.filter(function(ele,index){
-			    	if(sex == 'all'){
-			    		return arr;
-			    	}else if(ele.sex == sex){
-						return true;
-					}
-				})
-				return sexArr;
-			}
-			function filterBysearch(str,arr){
-				var name = str || '';
-			 	return  arr.filter(function(ele,index){
-					if(str.trim() == ''){
-						return arr;
-					}else if(ele.name == str){
-						return true;
-					}
-				})
-			}	
-			var state = {
-				value : '',
-				sex : 'all'
-			}
-			var fit = {
-				value : filterBysearch,
-				sex : filterBySex
-			}
-			function addFn(state,fit,arr){
-				var lastArr = arr;		
-				for(var prop in fit){
-					 lastArr = fit[prop](state[prop],lastArr);
-				}
-				return lastArr;
-			}
-		</script>
+    <div class="wrap">
+        <div>
+            <span>
+                <input id='search' type="" name="">
+            </span>
+            <ul class="filter">
+                <li class="active" sex='all'>all</li>
+                <li sex='male'>male</li>
+                <li sex='fmale'>fmale</li>
+            </ul>
+        </div>
+        <div>
+            <ul class="content">
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src='process.js'></script>
+    <script type="text/javascript" src="unShake.js"></script>
 </body>
 </html>

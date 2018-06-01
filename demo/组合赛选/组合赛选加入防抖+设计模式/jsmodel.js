@@ -1,18 +1,28 @@
+function jsModel(){
+    var list = [];
+	var state = {
+		value: '',
+		sex: 'all'
+	}
+    function getState(prop){
+        return state[prop];
+    }
 
+    function disPatch(obj){
+        state[obj.type] = obj.value;
+        for(var i = 0; i < list.length -1 ;i++){
+            list[i]();
+        }
+    }
 
-function getState(prop){
-    return state[prop];
+    function subScribe(fun){
+        list.push(fun);
+    }
+
+    return {
+        getState : getState,
+        disPatch : disPatch,
+        subScribe : subScribe
+    }
 }
-
-function setState(obj){
-    state[obj.type] = state[obj.value];
-}
-
-function depatch(){
-    
-}
-
-function subscribe(){
-
-}
-
+// console.log(jsModel().getState('sex'));

@@ -17,6 +17,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		{ img: 'img-08', name: 'longlong', age: 16, sex: 'fmale' },
 	];
 
+	// var jsm = new  jsModel();
+	
+	var state = {
+		value: '',
+		sex: 'all'
+	}
 	function render(arr) {
 		content.innerHTML = '';
 		var arr = arr || null;
@@ -34,11 +40,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 	render(person);
 
-	search.oninput = function () {
-		state.value = this.value;
-		deShake(function(){
-			render(addFn(state, fit, person));
-		},1000);
+	search.oninput = deShake(event,1000);
+
+	function event(){
+		render(addFn(state, fit, person));
 	}
 
 	filterUl.addEventListener('click', function (e) {
@@ -73,10 +78,10 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 		})
 	}
-	var state = {
-		value: '',
-		sex: 'all'
-	}
+	// var state = {
+	// 	value: '',
+	// 	sex: 'all'
+	// }
 	var fit = {
 		value: filterBysearch,
 		sex: filterBySex

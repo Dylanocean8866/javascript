@@ -9,15 +9,17 @@ function deShake(handle, delay) {
         handle();
     }, delay);   
 }
-<<<<<<< HEAD
 
 
 function test2(){
 
-=======
-     
+}
 
 function  test(){
     
->>>>>>> test
+}
+
+
+function test3(){
+    
 }

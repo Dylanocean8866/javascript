@@ -10,3 +10,8 @@ function deShake(handle, delay) {
         handle();
     }, delay);
 }
+
+
+function test2(){
+
+}

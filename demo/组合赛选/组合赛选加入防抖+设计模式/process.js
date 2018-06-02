@@ -40,9 +40,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 	render(person);
 
-	search.oninput = deShake(event,1000);
+	search.oninput = deShake.call(search,event,1000);
 
 	function event(){
+		console.log(this);
 		render(addFn(state, fit, person));
 	}
 

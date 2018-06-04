@@ -1,12 +1,11 @@
-
-var timer = null;
 function deShake(handle, delay) {
-    
-    console.log(this);
-    var self = this;
-    var arg = this.arguments;
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-        handle();
-    }, delay);
-}
+        var timer = null;
+        return function(){
+            var arg = this.arguments;
+            var self = this;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                handle.apply(self,arg);
+            }, delay);
+        }
+	}

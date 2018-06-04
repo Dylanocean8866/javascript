@@ -1,20 +1,16 @@
-function jsModel(){
+function createStore(state){
+    var initState = state;
     var list = [];
-	var state = {
-		value: '',
-		sex: 'all'
-	}
-    function getState(prop){
-        return state[prop];
+    function getState(){
+        return state;
     }
 
     function disPatch(obj){
         state[obj.type] = obj.value;
-        for(var i = 0; i < list.length -1 ;i++){
-            list[i]();
-        }
+        list.forEach(function(ele,index){
+            ele();
+        })
     }
-
     function subScribe(fun){
         list.push(fun);
     }
@@ -25,4 +21,4 @@ function jsModel(){
         subScribe : subScribe
     }
 }
-// console.log(jsModel().getState('sex'));
+var store = createStore({value:'',sex:'all'})

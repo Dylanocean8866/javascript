@@ -16,13 +16,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		{ img: 'img-08', name: 'longlong', age: 16, sex: 'fmale' },
 		{ img: 'img-08', name: 'longlong', age: 16, sex: 'fmale' },
 	];
-
-	// var jsm = new  jsModel();
 	
-	var state = {
-		value: '',
-		sex: 'all'
-	}
+	store.subScribe(function(){
+		render(addFn(store.getState(), fit, person));
+	});
+	
+	store.disPatch({type:'value',value:''})
 	function render(arr) {
 		content.innerHTML = '';
 		var arr = arr || null;
@@ -38,20 +37,17 @@ document.addEventListener('DOMContentLoaded', function () {
 			});
 		}
 	}
-	render(person);
-
 	search.oninput = deShake(event,1000);
-
 	function event(){
-		render(addFn(state, fit, person));
+		store.disPatch({type:'value',value:this.value});
 	}
+
 
 	filterUl.addEventListener('click', function (e) {
 		var event = e || window.event;
 		var target = event.target || event.srcElement;
 		if (target.tagName == 'LI') {
-			state.sex = target.getAttribute('sex');
-			render(addFn(state, fit, person));
+			store.disPatch({type:'sex',value:target.getAttribute('sex')});
 			document.getElementsByClassName('active')[0].className = '';
 			target.className = 'active';
 		}
@@ -78,10 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 		})
 	}
-	// var state = {
-	// 	value: '',
-	// 	sex: 'all'
-	// }
 	var fit = {
 		value: filterBysearch,
 		sex: filterBySex

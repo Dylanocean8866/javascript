@@ -16,13 +16,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		{ img: 'img-08', name: 'longlong', age: 16, sex: 'fmale' },
 		{ img: 'img-08', name: 'longlong', age: 16, sex: 'fmale' },
 	];
-
-	// var jsm = new  jsModel();
 	
-	var state = {
-		value: '',
-		sex: 'all'
-	}
+	store.subScribe(function(){
+		render(addFn(store.getState(), fit, person));
+	});
+	
+	store.disPatch({type:'value',value:''})
 	function render(arr) {
 		content.innerHTML = '';
 		var arr = arr || null;
@@ -38,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			});
 		}
 	}
+<<<<<<< HEAD
 	render(person);
 
 	search.oninput = deShake(event,0);
@@ -46,14 +46,19 @@ document.addEventListener('DOMContentLoaded', function () {
 		console.log(self.value);
 	 	state.value = self.value;
 		render(addFn(state, fit, person));
+=======
+	search.oninput = deShake(event,1000);
+	function event(){
+		store.disPatch({type:'value',value:this.value});
+>>>>>>> 43350a605f8ad14719b05bec45c7d43806152665
 	}
+
 
 	filterUl.addEventListener('click', function (e) {
 		var event = e || window.event;
 		var target = event.target || event.srcElement;
 		if (target.tagName == 'LI') {
-			state.sex = target.getAttribute('sex');
-			render(addFn(state, fit, person));
+			store.disPatch({type:'sex',value:target.getAttribute('sex')});
 			document.getElementsByClassName('active')[0].className = '';
 			target.className = 'active';
 		}
@@ -80,10 +85,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 		})
 	}
-	// var state = {
-	// 	value: '',
-	// 	sex: 'all'
-	// }
 	var fit = {
 		value: filterBysearch,
 		sex: filterBySex

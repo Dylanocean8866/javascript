@@ -55,7 +55,7 @@
 		// var obj1 = {};
 		// deepClone(obj1,obj);
 
-		var demoU = document.getElementsByTagName('ul')[0];
+		// var demoU = document.getElementsByTagName('ul')[0];
 		// for(var i = 0; i < demoU.children.length; i++){
 		// 	(function(n){
 		// 		demoU.children[i].addEventListener('click',function(){
@@ -70,7 +70,64 @@
 		// 	var liArr = target.parentNode.children;
 		//     console.log(Array.prototype.slice.call(liArr).indexOf(target));
 		// });
-	
+
+		// var arr = [1,2,3,4,5,6,3,5,6];
+		// Array.prototype.filterArray = function(){
+		// 	var newArr = [];
+		// 	var len = this.length;
+		// 	for(var i = 0; i < len; i++){
+		// 		if(newArr.indexOf(this[i]) == -1){
+		// 			newArr.push(this[i]);
+		// 		}
+		// 	}
+		// 	return newArr;
+		// }
+		// console.log(arr.filterArray());
+
+		// var arr = [1,2,3,4,5,6,3,5,6];
+		// Array.prototype.filterArray = function(){
+		// 	var newArr = [];
+		// 	var temp = {}
+		// 	var len = this.length;
+		// 	for(var i = 0 ;i < len; i++){
+		// 		if(!temp[this[i]]){
+		// 			temp[this[i]] = this[i];
+		// 			newArr.push(this[i]);
+		// 		}
+		// 	}	
+		// 	console.log(temp);
+		// 	return newArr;
+		// }
+		// console.log(arr.filterArray())
+
+
+		// var str = 'get-element-by-id';
+		// var regexp = /(-\w)/g;
+		// console.log(str.replace(regexp,function($,$1){
+		// 	var newStr = $1.toUpperCase();
+		// 	return newStr.split('-').join('');
+		// }));
+
+		var arr = [1,2,3,4,5];
+		// var newArr = arr.reduce(function(x,y){
+		// 	return x + y;
+		// });
+		// console.log(newArr);
+
+
+		// Array.prototype.myReduce =  function(fn){
+		// 	var result;
+		// 	this.forEach(function(ele,index){
+		// 		result = fn(this[index],this[index + 1],index)
+		// 	})
+		// 	return result;
+		// }
+
+		// var newArr = arr.myReduce(function(p,c,i){
+		// 	return p + c;
+		// });
+		// console.log(newArr);
+		
 	</script>
 </body>
 </html> 

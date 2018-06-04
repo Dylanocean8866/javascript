@@ -37,20 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			});
 		}
 	}
-<<<<<<< HEAD
-	render(person);
-
-	search.oninput = deShake(event,0);
-	function event(){
-		var self = this;
-		console.log(self.value);
-	 	state.value = self.value;
-		render(addFn(state, fit, person));
-=======
 	search.oninput = deShake(event,1000);
 	function event(){
 		store.disPatch({type:'value',value:this.value});
->>>>>>> 43350a605f8ad14719b05bec45c7d43806152665
 	}
 
 

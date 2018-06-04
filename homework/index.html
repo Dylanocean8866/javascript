@@ -3,26 +3,74 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style>
+		ul li{
+			width :100px;
+			height :30px; 
+			background :#ccc;
+			color :#fff;
+			display :inline-block;
+			text-align:center;
+		}
+	</style>
 </head>
 <body>
-	<input class="inp" type="text">
+	<ul class="demoUl">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
 	<script type="text/javascript">
-	var inp = document.getElementsByTagName('input')[0];
-	inp.style.backgroundColor = 'red';
+		// var obj = {
+		// 	name :'xiaozhnag',
+		// 	sex :'fmale',
+		// 	wife:{
+		// 		name : 'xiaoliu',
+		// 		son :{
+		// 			name : 'xiaobao',
+		// 			hobby :['swimming','basktball','tennise']
+		// 		}
+		// 	}
+		// }
+		// function deepClone(target,origin){
+		// 	var target = target || {};
+		// 	var toStr = Object.prototype.toString;
+		// 	var objArr = '[object Array]';
+		// 	for(var prop in origin){
+		// 		if(typeof origin[prop] =='object'){
+		// 			console.log(toStr.call(origin[prop]));
+		// 			if(toStr.call(origin[prop]) == objArr){
+		// 				target[prop] = [];
+		// 			}else{
+		// 				target[prop] = {};
+		// 			}
+		// 		  deepClone(target[prop],origin[prop]);
+		// 		}else{
+		// 			target[prop] = origin[prop];
+		// 		}
+		// 	}
+		// }
+		// var obj1 = {};
+		// deepClone(obj1,obj);
 
-		// (function(){
+		var demoU = document.getElementsByTagName('ul')[0];
+		// for(var i = 0; i < demoU.children.length; i++){
+		// 	(function(n){
+		// 		demoU.children[i].addEventListener('click',function(){
+		// 			console.log(this.innerText);
+		// 		});
+		// 	}(i))
+		// }
 
-		// 	var x = y = 1;
-
-		// })();
-
-		// console.log(x);
-		// console.log(y);
-
-		var str = '123abc';
-		console.log(typeof str++);
-
-
+		// demoU.addEventListener('click',function(e){
+		// 	var event = e || window.event;
+		// 	var target = event.target || event.srcElement;
+		// 	var liArr = target.parentNode.children;
+		//     console.log(Array.prototype.slice.call(liArr).indexOf(target));
+		// });
+	
 	</script>
 </body>
-</html>
+</html> 

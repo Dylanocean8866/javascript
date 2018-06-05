@@ -114,24 +114,47 @@
 		// });
 		// console.log(newArr);
 
-		var arr = [1,2,3,4,5,4,10,43,67,34,43];
-		function unique(arr){
-			var newArr = [];
-			newArr[0] = arr[0];
-			var tempArr =  arr.sort(function(a,b){return a - b;})
-			var len = tempArr.length;
-			for(var i = 0; i < len; i++){
-				if(tempArr[i] != newArr[newArr.length - 1]){
-					newArr.push(tempArr[i]);
-				}
-			}
-			return newArr;
-		}
-		console.log(unique(arr));
+		// var arr = [1,2,3,4,5,4,10,43,67,34,43];
+		// function unique(arr){
+		// 	var newArr = [];
+		// 	newArr[0] = arr[0];
+		// 	var tempArr =  arr.sort(function(a,b){return a - b;})
+		// 	var len = tempArr.length;
+		// 	for(var i = 0; i < len; i++){
+		// 		if(tempArr[i] != newArr[newArr.length - 1]){
+		// 			newArr.push(tempArr[i]);
+		// 		}
+		// 	}
+		// 	return newArr;
+		// }
+		// console.log(unique(arr));
 
-
-	
 		
+		// var arr = [1,2,3,4];
+		// var newArr = arr.reduceRight(function(prev,cur,curIndex,array){
+		// 	return prev + '-' + cur;
+		// },10);
+		// console.log(newArr);
+
+		var arr = [1,2,3,4];
+		Array.prototype.myReduce = function(fn,init){
+			prev = init;
+			var i = 0;
+			var len = this.length;	
+			if(init == undefined){
+				prev = this[0];
+				i = 1;
+			}
+			for(i; i <len; i++){
+				prev =  fn(prev,this[i],i)
+			}
+			return prev;
+			
+		}
+		var newArr = arr.myReduce(function(prev,cur,curIndex){
+			return prev + cur;
+		},10);
+		console.log(newArr);
 	</script>
 </body>
 </html> 

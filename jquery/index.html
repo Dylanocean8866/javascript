@@ -2,21 +2,69 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
-	<script type="text/javascript" src='jquery-3.3.1.js'></script>
 </head>
 <body>
-	<div id="div1">asdfsadf</div>
-	<script type="text/javascript">
-	window.id = 'a';
-	var div = document.getElementById('div1');
-	div.onclick = function(){
-		console.log(this.id);
-		var callback =  function callback(){
-			console.log(this.id);
-		}
-		callback();
-	}
+	<p class="out1"></p>
+	<div class="wrapper" id="wrapper">
+		<p class="in"></p>
+		<ul id="myList" class="myList">
+			<li class ='one' >one	<p class="in1">s</p></li>
+			<li class ='two' >two</li>
+			<li class ='three' >three</li>
+			<li class ='four' >four</li>
+			<li class ='five' >five</li>
+		</ul>
+	</div>
+	<p class="out"></p>
+	<div class="box">
+		<li>1</li>
+		<li>2</li>
+	</div>
+	<input type="text">
+	<input type="checkbox"  name='first' checked>
+	<input type="checkbox">
+	<input type="checkbox">
+	<script src="jquery-3.3.1.js"></script>
+	<script>
+		// $('li:odd').css('color','red');
+		// $('li:even').css('color','blue');	
+		// $('li:eq(1)').css('color','red');
+		// $('li:contains(three)').css('color','red');
+		// $('li:has(p)').css('color','red');
+		// $('li:empty').css('color','red');
+		// console.log($('p:parent'));  //p里面需要有文本
+		// console.log($('li[class]:not(:first)'));
+		// console.log($('div[id]'))
+		// console.log($('div[id = wrapper]'));
+		// console.log($('ul li:first-child'));
+		// console.log($('li:first-of-type'));
+		// console.log($('ul li:nth-child(2)'));
+		// console.log($('input:text'));
+		// console.log($('input:checkbox:eq(1)'));
+		// console.log($('input:checked'));
+		// console.log($('li','.box'));传两个参数， 第二个是范围
+		// console.log($('li').index($('.three')));
+		//set  DATA
+		// $('.wrapper').data('age',12);
+		// console.log($('.wrapper').data('age'));
+		// $('.wrapper').removeData(age);
+
+
+
+		//对象
+		// console.log($('ul li').length);
+		// $('ul li').each(function(){
+		// 	$(this).css('color','red');
+		// });
+		console.log( $("ul").selector);
+
+		// $(function(){   //这边执行就行document.ready
+		// 	console.log('1243');
+		// });
+
 	</script>
 </body>
-</html>          
+</html>

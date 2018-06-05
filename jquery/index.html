@@ -1,70 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
+	<style>
+		*{
+			margin:0px;
+			padding:0px;
+			list-style :none;
+		}
+		.active{
+			background:red;
+		}
+		.box1{
+			width :200px;
+			height :200px;
+			border :solid #424242 1px;
+			position: absolute;
+			top :230px;
+			left :230px;
+		}
+		.con{
+			width:100px;
+			height:100px;
+			border:solid red 1px;
+			padding-top:10px;
+			margin-top:20px;
+			margin-left:40px;
+		}
+	</style>
 </head>
+
 <body>
-	<p class="out1"></p>
+	<div class="box1">
+		<div class="con">asdfdsa</div>
+	</div>
+	<p class="out1">a<a>aaaa</a></p>
 	<div class="wrapper" id="wrapper">
 		<p class="in"></p>
 		<ul id="myList" class="myList">
-			<li class ='one' >one	<p class="in1">s</p></li>
-			<li class ='two' >two</li>
-			<li class ='three' >three</li>
-			<li class ='four' >four</li>
-			<li class ='five' >five</li>
+			<li  class='one active'>one
+				<p class="in1">s</p>
+			</li>
+			<li class='two'>two</li>
+			<li class='three'>three</li>
+			<li class='four'>four</li>
+			<li class='five'>five</li>
 		</ul>
 	</div>
 	<p class="out"></p>
 	<div class="box">
-		<li>1</li>
-		<li>2</li>
+		<!-- <li>1</li>
+		<li>2</li> -->
 	</div>
 	<input type="text">
-	<input type="checkbox"  name='first' checked>
+	<input type="checkbox" name='first' checked>
 	<input type="checkbox">
 	<input type="checkbox">
 	<script src="jquery-3.3.1.js"></script>
 	<script>
-		// $('li:odd').css('color','red');
-		// $('li:even').css('color','blue');	
-		// $('li:eq(1)').css('color','red');
-		// $('li:contains(three)').css('color','red');
-		// $('li:has(p)').css('color','red');
-		// $('li:empty').css('color','red');
-		// console.log($('p:parent'));  //p里面需要有文本
-		// console.log($('li[class]:not(:first)'));
-		// console.log($('div[id]'))
-		// console.log($('div[id = wrapper]'));
-		// console.log($('ul li:first-child'));
-		// console.log($('li:first-of-type'));
-		// console.log($('ul li:nth-child(2)'));
-		// console.log($('input:text'));
-		// console.log($('input:checkbox:eq(1)'));
-		// console.log($('input:checked'));
-		// console.log($('li','.box'));传两个参数， 第二个是范围
-		// console.log($('li').index($('.three')));
-		//set  DATA
-		// $('.wrapper').data('age',12);
-		// console.log($('.wrapper').data('age'));
-		// $('.wrapper').removeData(age);
+		function firstLesson() {
+			// $('li:odd').css('color','red');
+			// $('li:even').css('color','blue');	
+			// $('li:eq(1)').css('color','red');
+			// $('li:contains(three)').css('color','red');
+			// $('li:has(p)').css('color','red');
+			// $('li:empty').css('color','red');
+			// console.log($('p:parent'));  //p里面需要有文本
+			// console.log($('li[class]:not(:first)'));
+			// console.log($('div[id]'))
+			// console.log($('div[id = wrapper]'));
+			// console.log($('ul li:first-child'));
+			// console.log($('li:first-of-type'));
+			// console.log($('ul li:nth-child(2)'));
+			// console.log($('input:text'));
+			// console.log($('input:checkbox:eq(1)'));
+			// console.log($('input:checked'));
+			// console.log($('li','.box'));传两个参数， 第二个是范围
+			// console.log($('li').index($('.three')));
+			//set  DATA
+			// $('.wrapper').data('age',12);
+			// console.log($('.wrapper').data('age'));
+			// $('.wrapper').removeData(age);
 
 
 
-		//对象
-		// console.log($('ul li').length);
-		// $('ul li').each(function(){
-		// 	$(this).css('color','red');
+			//对象
+			// console.log($('ul li').length);
+			// $('ul li').each(function(){
+			// 	$(this).css('color','red');
+			// });
+			// console.log( $("ul"));
+
+			// $(function(){   //这边执行就行document.ready
+			// 	console.log('1243');
+			// });
+		}
+		
+		// console.log($('div:eq(1)').attr('class'));
+		// $('div:eq(1)').attr('class','box2');  //设置class 设置属性
+		// $('div:eq(1)').attr({'data':'num','age':12}) //通过对象的方式是在多个参数
+		// $('div:eq(1)').removeAttr('age');   //移除属性
+		// $('div').attr('class',function(index,val){
+		// 	console.log(index+''+val)
+		// 	return 'list';  //这里可以对设置的名字进行操作返回
+		// })
+
+		// console.log($('input[type=checkbox]').prop('checked',false));
+
+		// $('input[type=checkbox]').prop('checked',function(index,val){
+		// 	return !val;
+		// })
+
+		// $('input[type=text]').addClass('active');添加class
+		// $('input[type=text]').removeClass('active'); 移除class
+		// $('input[type=text]').click(function(){
+		// 	$(this).toggleClass('active');  添加之前判断
 		// });
-		console.log( $("ul").selector);
-
-		// $(function(){   //这边执行就行document.ready
-		// 	console.log('1243');
+		// $('li').toggleClass('active');
+		// console.log($('.out1').html('<a>a</a>')); 获取文本以及标签
+		// console.log($('body').text());  或者文本信息除去标签
+		// $('input[type=text]').bind('input propertychange',function(){
+		// 	console.log($(this).val());  获取表单元素的值
+		// })
+		// console.log($('.box1').position()); //相对于父级的距离
+		// $('.box1').offset();  //相对于视口的距离
+		// console.log($('.con').height());   //容器的高度
+		// console.log($('.con').innerHeight()); //容器+padding
+		// console.log($('.con').outerHeight()); //容器+padding+border
+		// console.log($('.con').outerHeight(true)); //容器+padding+border+margin
+		// $('.con').append('<div>a</div>'); 给某个元素插入元素
+		// $('<div>b</div>').appendTo($('.con')).addClass('d'); 把某个元素插入到指定元素中
+		// $('.con').prepend('<div>abc</div>').addClass('bb');给某个元素插入新元素
+		// $('<div>abc</div>').prependTo($('.con')).addClass('prependTo');  把某个元素添加到某个元素之前， 并且可以添加样式，链式调用
+		// $('.con').before('<div>a</div>');元素之前插入
+		// $('.con').after('<div>a</div>');  元素之后插入
+		// $('<div>a</div>').insertAfter($('.con'));元素之前插入   可以传对象
+		// $('<div>a</div>').insertBefore($('.con')); 元素之前插入  可以传对象
+		// $('.box').insertAfter($('.con')); 元素之后插入
+		// $('.con').wrap($('.box'));	添加包裹元素
+		// $('.con').unwrap($('.box')) 删除包裹元素
+		// $('.con').wrapAll($('.out'))
+		// $('input[type=text]').replaceWith('<div>a</div>')
+		// $('input[type=text]').replaceWith($('.con'))  什么被什么替换
+		// $('input[type=text]').replaceAll($('.con'));	 什么把什么替换
+		// $('.box1').empty();	清空子元素
+		// $('.box1').remove(); 清空自身以及子元素
+		// $('.box1').click(function(){
+		// 	console.log('a');
 		// });
-
+		// $('.box1').detach();   detach也会删除元素，但会保留事件
+		// $('.con').clone().appendTo($('.box'));  clone一个元素对象， 添加到指定元素中
+		// $('li:eq(3)').css('color','red');  根据下标获取元素
+		// console.log($('li').hasClass('two'));
+		// console.log($('li').is('.two'));   is  跟hasClass 都可以判断是否包含某一个clas，不同的is 可以做其他判断， hasClass比较单一
+		// console.log($('li').filter('.one,:last'));
+		// console.log($('ul').children());  返回子元素， 不会返回子元素中的子元素 
+		// console.log($('li').closest('.out1'));//自身如果满足条件，也会返回本身，不满足就会向上继续查找， 返回一个元素立即停止
+		// console.log($('.wrapper').find('p')); 向下查找到所有满足条件的元素
+		// console.log($('.one').next());  找到同级元素的下一个
+		// console.log($('.two').nextAll());  返回之前同级所有元素
+		// console.log($('.five').prev());  返回同级上一个元素
+		// console.log($('.five').prevAll()); 返回同级所有其他元素
+		// console.log($('.two').siblings());   返回当前元素的同级其他元素
+		// console.log($('.two').parent());  	返回同级父元素
+		// console.log($('.two').parents());	返回所有父元素
+		//$('li').add('input').css('border','solid red 1px');  给li添加边框  加上input同时也会添加上样式
+		// console.log($('.two').parent().end());  加上.end会返回期初使用的对用.two	
+		//merge方法调用，合并数组， 并且改变第一个参数数组的值
+		// var arr = [1,2,43,4,5];
+		// var arr1 = [1,24,6,7];
+		// $.merge(arr,arr1);
+		// console.log(arr);
+		// console.log(arr1);
+		//parseHTML解析标签， 参数支持但标签， 后面的true表示，是否允许添加script标签
+		// var html = $.parseHTML('<div><script>',true);
+		// $('body').append(html);
+		// var obj = {
+		// 	name :'aa',
+		// 	age : 21
+		// }
+		// var obj1 = {
+		// 	name : 'bb',
+		// 	age :23
+		// }
+		//true代表深度克隆的意思， {}这个参数跟第一个一样，可以不写， 不写就把obj给返回
+		// console.log($.extend(true,{},obj,obj1));
 	</script>
 </body>
+
 </html>

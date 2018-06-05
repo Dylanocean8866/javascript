@@ -108,11 +108,26 @@
 		// 	return newStr.split('-').join('');
 		// }));
 
-		var arr = [1,2,3,4,5];
+		// var arr = [1,2,3,4,5];
 		// var newArr = arr.reduce(function(x,y){
 		// 	return x + y;
 		// });
 		// console.log(newArr);
+
+		var arr = [1,2,3,4,5,4,10,43,67,34,43];
+		function unique(arr){
+			var newArr = [];
+			newArr[0] = arr[0];
+			var tempArr =  arr.sort(function(a,b){return a - b;})
+			var len = tempArr.length;
+			for(var i = 0; i < len; i++){
+				if(tempArr[i] != newArr[newArr.length - 1]){
+					newArr.push(tempArr[i]);
+				}
+			}
+			return newArr;
+		}
+		console.log(unique(arr));
 
 
 	

@@ -75,7 +75,7 @@
 		<li>2</li> -->
 	</div>
 	<input type="text">
-	<input type="checkbox" name='first' checked>
+	<input type="checkbox" name='first'>
 	<input type="checkbox">
 	<input type="checkbox">
 	<button class="btn1">btn1</button>
@@ -384,7 +384,108 @@
 		// $(".box1").delay(2000).fadeOut('slow');
 
 		}
-	</script>
+        function fourthLesson(){
+					
+			//返回数据类型
+			// console.log($.type({'aa':'bb'}))
+			//去除字符串左右两边的空格
+			// console.log($.trim('   s     s  a  a  '))
+
+			//makeArray把类数组变成数组
+			// var obj = {
+			// 	0:'xiaozhang',
+			// 	1:'xiaoli',
+			// 	2:'male',
+			// 	length:3
+			// }
+			// console.log($.makeArray(obj));
+			//inArray方法 返回存在数组所在位置的下标  不存在返回-1
+			// var arr = [1,2,3,5];
+			// console.log($.inArray(234,arr));
+			//如果引入的jquery有冲突， 可以通过noConflict解决冲突
+			// var own$ = $.noConflict();
+			// console.log(own$('ul'));
+			//通过extend 扩展的方法 是工具方法 ， 直接 $.调用  通过$.fn.extend 扩展的方法在jquery原型链上， 通过对象的方式调用
+			// $.extend()  -->  $.add();
+			// $.fn.extend --> $('div').add();
+			
+			// $.extend({
+			// 	leftTrim : function(str){
+			// 		var reg = /\s+/g;
+			// 		return str.replace(reg,'');
+			// 	}
+			// });
+			// console.log($.leftTrim('    asdfad   sf    s'));
+
+			// $.fn.extend({
+			// 	choseAllCheckBox : function(torf){
+			// 		// for(var i = 0; i < this.length;i++){
+			// 		// 	$(this)[i].checked = true;
+			// 		// }
+			// 		return $(this).each(function(){
+			// 			this.checked = torf;
+			// 		});
+			// 	}
+			// })
+			// $('input[type=checkbox]').choseAllCheckBox(false);
+			
+			
+			// function fn1(str){
+			// 	console.log(str);
+			// 	return false;
+			// }
+			// function fn2(num){
+			// 	console.log(++num);
+			// }
+			//生成一个回调队列 如果添加unique则添加重复的函数， 就不会执行  once  只执行一次fire
+			//参数stopOnFalse  如果函数中返回false后面就不执行了
+			// var callBack = $.Callbacks('once','unique');  
+			// var callBack = $.Callbacks('stopOnFalse');  
+			// var callBack = $.Callbacks('memory');  //如果参数时memory  执行时候就会把fire后面添加的函数， 一起执行  
+			// callBack.add(fn1,fn2); //向回调队列添加函数   可以传多个function
+			// callBack.fire('1111');  //触发队列函数
+			// callBack.add(fn2); //添加函数2
+			// callBack.remove(fn1);  //移除队列的函数
+			// callBack.fire('1111');  //再次触发执行， 就只能执行一个function
+			
+			// function dfd(){
+			// 	var d = $.Deferred();
+			// 	// d.notify();  //模拟装填正在进行中
+			// 	// d.resolve(); //模拟成功的状态
+			// 	d.reject();     //模拟失败的状态
+			// 	return d.promise();   //如果这里是promise()  就会把状态改成只读，外面无法修改
+			// }
+			// var der = dfd();
+			// // // der.resolve();      //上面设置的promise() 这里无法修改，因为是只读的
+			// // der.done(function(){
+			// // 	console.log('done');
+			// // }).fail(function(){
+			// // 	console.log('fail');
+			// // }).progress(function(){
+			// // 	console.log('loading')
+			// // });
+			// //如果deferred对象中有一个没有返回成功就不执行，都执行成功就可以执行then里面的
+			// $.when(der).then(function(){
+			// 	console.log('a');
+			// })
+			//ajaxa 请求
+			// $.ajax({
+			// 	type:'GET',
+			// 	url:'json.json',
+			// 	success:function(data){
+			// 		console.log(data);
+			// 	},
+			// 	error:function(data){
+			// 		console.log('error');
+			// 	}
+			// })
+		}
+
+
+
+
+
+</script>
 </body>
 
 </html>

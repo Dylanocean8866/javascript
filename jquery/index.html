@@ -7,43 +7,61 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 	<style>
-		*{
-			margin:0px;
-			padding:0px;
-			list-style :none;
+		* {
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
 		}
-		.active{
-			background:red;
+		body{
+			height: 1000px;
 		}
-		.box1{
-			width :200px;
-			height :200px;
-			border :solid #424242 1px;
+
+		.active {
+			background: red;
+		}
+
+		.box1 {
+			width: 200px;
+			height: 200px;
+			border: solid #424242 1px;
 			position: absolute;
-			top :230px;
-			left :230px;
+			top: 230px;
+			left: 230px;
 		}
-		.con{
-			width:100px;
-			height:100px;
-			border:solid red 1px;
-			padding-top:10px;
-			margin-top:20px;
-			margin-left:40px;
+
+		.con {
+			width: 100px;
+			height: 100px;
+			border: solid red 1px;
+			padding-top: 10px;
+			margin-top: 20px;
+			margin-left: 40px;
+		}
+		.myList li{
+			width :50px;
+			height :50px;
+			background-color :pink;
+			display: inline-block;
+			line-height :50px;
+			text-align: center;
+			color:#fff;
 		}
 	</style>
 </head>
 
 <body>
+	<a href="https://www.baidu.com">baidu</a>
 	<div class="box1">
 		<div class="con">asdfdsa</div>
 	</div>
-	<p class="out1">a<a>aaaa</a></p>
+	<p class="out1">a
+		<a>aaaa</a>
+	</p>
 	<div class="wrapper" id="wrapper">
 		<p class="in"></p>
 		<ul id="myList" class="myList">
-			<li  class='one active'>one
-				<p class="in1">s</p>
+			<li class='one active'>one
+				<!-- <p class="in1">s</p> -->
 			</li>
 			<li class='two'>two</li>
 			<li class='three'>three</li>
@@ -60,6 +78,8 @@
 	<input type="checkbox" name='first' checked>
 	<input type="checkbox">
 	<input type="checkbox">
+	<button class="btn1">btn1</button>
+	<button class="btn2">btn2</button>
 	<script src="jquery-3.3.1.js"></script>
 	<script>
 		function firstLesson() {
@@ -99,96 +119,271 @@
 			// 	console.log('1243');
 			// });
 		}
-		
-		// console.log($('div:eq(1)').attr('class'));
-		// $('div:eq(1)').attr('class','box2');  //设置class 设置属性
-		// $('div:eq(1)').attr({'data':'num','age':12}) //通过对象的方式是在多个参数
-		// $('div:eq(1)').removeAttr('age');   //移除属性
-		// $('div').attr('class',function(index,val){
-		// 	console.log(index+''+val)
-		// 	return 'list';  //这里可以对设置的名字进行操作返回
-		// })
+		function secondLesson() {
+			// console.log($('div:eq(1)').attr('class'));
+			// $('div:eq(1)').attr('class','box2');  //设置class 设置属性
+			// $('div:eq(1)').attr({'data':'num','age':12}) //通过对象的方式是在多个参数
+			// $('div:eq(1)').removeAttr('age');   //移除属性
+			// $('div').attr('class',function(index,val){
+			// 	console.log(index+''+val)
+			// 	return 'list';  //这里可以对设置的名字进行操作返回
+			// })
 
-		// console.log($('input[type=checkbox]').prop('checked',false));
+			// console.log($('input[type=checkbox]').prop('checked',false));
 
-		// $('input[type=checkbox]').prop('checked',function(index,val){
-		// 	return !val;
-		// })
+			// $('input[type=checkbox]').prop('checked',function(index,val){
+			// 	return !val;
+			// })
 
-		// $('input[type=text]').addClass('active');添加class
-		// $('input[type=text]').removeClass('active'); 移除class
-		// $('input[type=text]').click(function(){
-		// 	$(this).toggleClass('active');  添加之前判断
-		// });
-		// $('li').toggleClass('active');
-		// console.log($('.out1').html('<a>a</a>')); 获取文本以及标签
-		// console.log($('body').text());  或者文本信息除去标签
-		// $('input[type=text]').bind('input propertychange',function(){
-		// 	console.log($(this).val());  获取表单元素的值
-		// })
-		// console.log($('.box1').position()); //相对于父级的距离
-		// $('.box1').offset();  //相对于视口的距离
-		// console.log($('.con').height());   //容器的高度
-		// console.log($('.con').innerHeight()); //容器+padding
-		// console.log($('.con').outerHeight()); //容器+padding+border
-		// console.log($('.con').outerHeight(true)); //容器+padding+border+margin
-		// $('.con').append('<div>a</div>'); 给某个元素插入元素
-		// $('<div>b</div>').appendTo($('.con')).addClass('d'); 把某个元素插入到指定元素中
-		// $('.con').prepend('<div>abc</div>').addClass('bb');给某个元素插入新元素
-		// $('<div>abc</div>').prependTo($('.con')).addClass('prependTo');  把某个元素添加到某个元素之前， 并且可以添加样式，链式调用
-		// $('.con').before('<div>a</div>');元素之前插入
-		// $('.con').after('<div>a</div>');  元素之后插入
-		// $('<div>a</div>').insertAfter($('.con'));元素之前插入   可以传对象
-		// $('<div>a</div>').insertBefore($('.con')); 元素之前插入  可以传对象
-		// $('.box').insertAfter($('.con')); 元素之后插入
-		// $('.con').wrap($('.box'));	添加包裹元素
-		// $('.con').unwrap($('.box')) 删除包裹元素
-		// $('.con').wrapAll($('.out'))
-		// $('input[type=text]').replaceWith('<div>a</div>')
-		// $('input[type=text]').replaceWith($('.con'))  什么被什么替换
-		// $('input[type=text]').replaceAll($('.con'));	 什么把什么替换
-		// $('.box1').empty();	清空子元素
-		// $('.box1').remove(); 清空自身以及子元素
-		// $('.box1').click(function(){
+			// $('input[type=text]').addClass('active');添加class
+			// $('input[type=text]').removeClass('active'); 移除class
+			// $('input[type=text]').click(function(){
+			// 	$(this).toggleClass('active');  添加之前判断
+			// });
+			// $('li').toggleClass('active');
+			// console.log($('.out1').html('<a>a</a>')); 获取文本以及标签
+			// console.log($('body').text());  或者文本信息除去标签
+			// $('input[type=text]').bind('input propertychange',function(){
+			// 	console.log($(this).val());  获取表单元素的值
+			// })
+			// console.log($('.box1').position()); //相对于父级的距离
+			// $('.box1').offset();  //相对于视口的距离
+			// console.log($('.con').height());   //容器的高度
+			// console.log($('.con').innerHeight()); //容器+padding
+			// console.log($('.con').outerHeight()); //容器+padding+border
+			// console.log($('.con').outerHeight(true)); //容器+padding+border+margin
+			// $('.con').append('<div>a</div>'); 给某个元素插入元素
+			// $('<div>b</div>').appendTo($('.con')).addClass('d'); 把某个元素插入到指定元素中
+			// $('.con').prepend('<div>abc</div>').addClass('bb');给某个元素插入新元素
+			// $('<div>abc</div>').prependTo($('.con')).addClass('prependTo');  把某个元素添加到某个元素之前， 并且可以添加样式，链式调用
+			// $('.con').before('<div>a</div>');元素之前插入
+			// $('.con').after('<div>a</div>');  元素之后插入
+			// $('<div>a</div>').insertAfter($('.con'));元素之前插入   可以传对象
+			// $('<div>a</div>').insertBefore($('.con')); 元素之前插入  可以传对象
+			// $('.box').insertAfter($('.con')); 元素之后插入
+			// $('.con').wrap($('.box'));	添加包裹元素
+			// $('.con').unwrap($('.box')) 删除包裹元素
+			// $('.con').wrapAll($('.out'))
+			// $('input[type=text]').replaceWith('<div>a</div>')
+			// $('input[type=text]').replaceWith($('.con'))  什么被什么替换
+			// $('input[type=text]').replaceAll($('.con'));	 什么把什么替换
+			// $('.box1').empty();	清空子元素
+			// $('.box1').remove(); 清空自身以及子元素
+			// $('.box1').click(function(){
+			// 	console.log('a');
+			// });
+			// $('.box1').detach();   detach也会删除元素，但会保留事件
+			// $('.con').clone().appendTo($('.box'));  clone一个元素对象， 添加到指定元素中
+			// $('li:eq(3)').css('color','red');  根据下标获取元素
+			// console.log($('li').hasClass('two'));
+			// console.log($('li').is('.two'));   is  跟hasClass 都可以判断是否包含某一个clas，不同的is 可以做其他判断， hasClass比较单一
+			// console.log($('li').filter('.one,:last'));
+			// console.log($('ul').children());  返回子元素， 不会返回子元素中的子元素 
+			// console.log($('li').closest('.out1'));//自身如果满足条件，也会返回本身，不满足就会向上继续查找， 返回一个元素立即停止
+			// console.log($('.wrapper').find('p')); 向下查找到所有满足条件的元素
+			// console.log($('.one').next());  找到同级元素的下一个
+			// console.log($('.two').nextAll());  返回之前同级所有元素
+			// console.log($('.five').prev());  返回同级上一个元素
+			// console.log($('.five').prevAll()); 返回同级所有其他元素
+			// console.log($('.two').siblings());   返回当前元素的同级其他元素
+			// console.log($('.two').parent());  	返回同级父元素
+			// console.log($('.two').parents());	返回所有父元素
+			//$('li').add('input').css('border','solid red 1px');  给li添加边框  加上input同时也会添加上样式
+			// console.log($('.two').parent().end());  加上.end会返回期初使用的对用.two	
+			//merge方法调用，合并数组， 并且改变第一个参数数组的值
+			// var arr = [1,2,43,4,5];
+			// var arr1 = [1,24,6,7];
+			// $.merge(arr,arr1);
+			// console.log(arr);
+			// console.log(arr1);
+			//parseHTML解析标签， 参数支持但标签， 后面的true表示，是否允许添加script标签
+			// var html = $.parseHTML('<div><script>',true);
+			// $('body').append(html);
+			// var obj = {
+			// 	name :'aa',
+			// 	age : 21
+			// }
+			// var obj1 = {
+			// 	name : 'bb',
+			// 	age :23
+			// }
+			//true代表深度克隆的意思， {}这个参数跟第一个一样，可以不写， 不写就把obj给返回
+			// console.log($.extend(true,{},obj,obj1));
+		}
+		function thirdLesson(){
+			
+		//DOM 加载完执行
+		// $(document).ready(function(){
 		// 	console.log('a');
-		// });
-		// $('.box1').detach();   detach也会删除元素，但会保留事件
-		// $('.con').clone().appendTo($('.box'));  clone一个元素对象， 添加到指定元素中
-		// $('li:eq(3)').css('color','red');  根据下标获取元素
-		// console.log($('li').hasClass('two'));
-		// console.log($('li').is('.two'));   is  跟hasClass 都可以判断是否包含某一个clas，不同的is 可以做其他判断， hasClass比较单一
-		// console.log($('li').filter('.one,:last'));
-		// console.log($('ul').children());  返回子元素， 不会返回子元素中的子元素 
-		// console.log($('li').closest('.out1'));//自身如果满足条件，也会返回本身，不满足就会向上继续查找， 返回一个元素立即停止
-		// console.log($('.wrapper').find('p')); 向下查找到所有满足条件的元素
-		// console.log($('.one').next());  找到同级元素的下一个
-		// console.log($('.two').nextAll());  返回之前同级所有元素
-		// console.log($('.five').prev());  返回同级上一个元素
-		// console.log($('.five').prevAll()); 返回同级所有其他元素
-		// console.log($('.two').siblings());   返回当前元素的同级其他元素
-		// console.log($('.two').parent());  	返回同级父元素
-		// console.log($('.two').parents());	返回所有父元素
-		//$('li').add('input').css('border','solid red 1px');  给li添加边框  加上input同时也会添加上样式
-		// console.log($('.two').parent().end());  加上.end会返回期初使用的对用.two	
-		//merge方法调用，合并数组， 并且改变第一个参数数组的值
-		// var arr = [1,2,43,4,5];
-		// var arr1 = [1,24,6,7];
-		// $.merge(arr,arr1);
-		// console.log(arr);
-		// console.log(arr1);
-		//parseHTML解析标签， 参数支持但标签， 后面的true表示，是否允许添加script标签
-		// var html = $.parseHTML('<div><script>',true);
-		// $('body').append(html);
+		// }).ready(function(){
+		// 	console.log('b');
+		// })
+		//立即执行
+		// $(function(){
+		// 	console.log('aaa');
+		// });	
+		//DOM和需要等所有外联引用的资源加载完成才能执行  多个window.onload  只能注册一个事件，多个会覆盖
+		// window.onload = function(){}
+
+		// $('.box1').on('click',function(event){
+		// 	console.log(this);
+		// 	event.stopPropagation();
+		// })
+		//可以指定在哪个元素上面触发
+		// $('.myList').on('click','li',function(){
+		// 	console.log(this);
+		// })
+		//面向对象写法 注意里面的this指向问题 
 		// var obj = {
-		// 	name :'aa',
-		// 	age : 21
+		// 	bindEvent:function(){
+		// 		var self = this;
+		// 		$('ul').on('click','li',function(){
+		// 			self.change(this);
+		// 		});
+		// 	},
+		// 	change:function(dom){
+		// 		$(dom).css('backgroundColor','red');
+		// 	}
 		// }
-		// var obj1 = {
-		// 	name : 'bb',
-		// 	age :23
-		// }
-		//true代表深度克隆的意思， {}这个参数跟第一个一样，可以不写， 不写就把obj给返回
-		// console.log($.extend(true,{},obj,obj1));
+		// obj.bindEvent();
+		
+		//事件解绑 off
+		// $('.box1').on('click',function(){
+		// 	$(this).css('backgroundColor','red');
+		// })
+		// $('.box1').off('click');
+
+		// 通过trigger来执行绑定的事件
+		// $('ul li').on('click',function(){
+		// 	$(this).css('backgroundColor','red');
+		// })
+		// setTimeout(function(){
+		// 	$('ul li').trigger('click');
+		// },2000)
+		//通过one绑定的事件， 只能执行一次
+		// $('ul li').one('click',function(){
+		// 		console.log('123');
+		// })
+
+		//注册事件   注意第一个参数e要传
+		// $('body').on('playChange',function(e,data){
+		// 	console.log(data)
+		// });
+		// $('body').trigger('playChange',23);
+		//hover 鼠标滑过，跟滑出
+		// $('li').hover(function(){
+		// 	$(this).css('backgroundColor','red');
+		// },function(){
+		// 	$(this).css('backgroundColor','pink');
+		// })
+		//显示元素的block or  none   true是block   
+		//  $('li').toggle(100000);   //里面可以写参数    slow fast  数字:表示时间
+		//失去焦点blur   
+		// $('input[type=text]').on('blur',function(){
+		// 	console.log($(this).val());
+		// })
+		//改变的时候触发change
+		// $('input[type=text]').on('change',function(){
+		// 	console.log($(this).val());
+		// })
+		//双击触发事件
+		// $('input[type=text]').on('dblclick',function(){
+		// 	console.log($(this).val());
+		// })
+
+		//聚焦  focus
+		// $('input[type=text]').on('focus',function(){
+		// 	console.log($(this).val());
+		// })
+		//在window触发keydown   keypress  keyup
+		// $(window).keydown(function(e){
+		// 	console.log('keydown');
+		// })
+		// $(window).keypress(function(e){
+		// 	console.log('keypress');
+		// })
+		// $(window).keyup(function(e){
+		// 	console.log('keyup');
+		// })
+		//鼠标 mousedown  mouseup  click
+		// $('li').on('mousedown',function(){
+		// 	console.log('mousedown');
+		// }).on('mouseup',function(){
+		// 	console.log('mouseup')
+		// }).on('click',function(){
+		// 	console.log('click');
+		// })
+		//clientX 相对于页面   page 包含滚动条的距离   
+		// $('li').on('mouseover',function(e){
+		// 	console.log(e.clientX + ' ' +e.clientY + ' ' +e.pageX + ' ' +e.pageY);
+		// })
+
+		//scroll
+		// $(window).on('scroll',function(e){
+		// 	console.log($(this).scrollTop());
+		// });
+
+		//获取事件源对象
+		// $('ul').on('click',function(e){
+		// 	console.log(e.target);
+		// })
+		//preventDefault()  取消默认事件
+		// $('a').on('click',function(e){
+		// 	e.preventDefault();
+		// })
+		//e.type 返回触发事件的名称
+		// $('li').on('click',function(e){
+		// 	console.log(e.type);
+		// })
+		//hide and  show
+		// $('li:first').hide('slow').show('slow',function(){
+		// 	console.log('done')
+		// });
+		//slideUp  slideDown  展示， 消失
+		// $('ul').slideUp('slow').slideDown('slow');
+		// $('.btn1').on('click',function(){
+		// 	$('ul').slideToggle('slow');
+		// })
+
+		//fadeIn  fadeOut  fadeToggle
+		// $('.btn1').on('click',function(){
+		// 	$('ul').fadeOut('slow');
+		// })
+		// $('.btn2').on('click',function(){
+		// 	$('ul').fadeTo('slow');
+		// })
+		// $('.btn2').on('click',function(){
+		// 	$('ul').fadeToggle('slow');
+		// })
+		//animate  接受4个参数， 第一个是变化的css参数， 第二是时间， 第三是运动的形态， 第四是执行完成后的回调
+		// $('.box1').animate({'width':'800px'},3000,'linear',function(){
+		// 	console.log('over');
+		// })
+		//点击触发动画
+		// var lock = true;
+		// $('.btn1').on('click',function(){
+		// 		var width = parseInt($('.box1').css('width'));
+		// 		width += 20;
+		// 		if(lock){
+		// 			lock = false;
+		// 			$('.box1').animate({'width':width},500,'linear',function(){
+		// 				console.log(parseInt($('.box1').css('width')));
+		// 				lock = true;
+		// 			})
+		// 		}
+		// });
+		//停止动画
+		// $('.box1').animate({'width':1000},3000,'linear',function(){
+		// 	console.log('over');
+		// })
+		// $('.btn1').on('click',function(){
+		// 	$('.box1').stop();
+		// })
+
+		//延迟
+		// $(".box1").delay(2000).fadeOut('slow');
+
+		}
 	</script>
 </body>
 

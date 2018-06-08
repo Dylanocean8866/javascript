@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="demo">
+
+    </div>
+    <script>
+        // let {bar:bar} = {foo:123,bar:12}
+        // console.log(bar);
+
+        // let {foo:bar} = {foo:124}
+        // console.log(bar);
+
+        // let obj = {
+        //     p:[
+        //         'hello',
+        //         {y:123}
+        //     ]
+        // }
+        // let {p:p,p:[x,{y:aa}]} = obj;
+        // // console.log(x,aa);
+        // console.log(p);
+
+        // let {x,y=3} = {x:1,y:undefined}
+        // console.log(x);
+            
+        // let [a,b,c,d] = 'love';
+        // console.log(a);
+
+        // let {a,b,c,d} = {a:'love',b:'lo'};
+        // console.log(a);
+        // let {length} = 'love';
+        // console.log(length)]
+
+        // var [a,b,c,d] = 'love';
+        // console.log(b.length);
+            
+        // let {pow,ceil,floor} = Math;
+        // Math = {
+        //     pow:function(){
+        //         csonoe.log('a');
+        //     }
+        // }
+        
+
+        // let {toString:s} = 123;
+        // let {toString:b} = true;
+
+        // console.log(s == Number.prototype.toString);
+
+        // console.log(b == Boolean.prototype.toString)
+
+        // function add([x,y]){
+        //     return x+y;
+        // }
+        // console.log(add([1,2]));
+        
+        // let arr = [[1,2],[3,4]].map(function([a,b]){
+        //     return a+b;
+        // })  
+        // console.log(arr);
+
+        // let a = 1,b = 2;
+        // [a,b] = [b,a];
+        // console.log(a,b);
+
+        // function add(){
+        //     console.log('add')
+        // }
+        // function del(){
+        //     console.log('del');
+        // }
+
+        // let method = {add,del};
+        
+        // function method(){
+        //     return {
+        //         add:function(){console.log('add')},
+        //         del:function(){console.log('del')}
+        //     }
+        // }
+
+        // let {add,del} = method();
+        
+        // let arr = {
+        //     a:'hello',
+        //     b:{
+        //         x:'meme'
+        //     }
+        // }
+        // let {a,b} = arr;
+
+        
+        // let arr = {
+        //     a:[
+        //         'hello',{
+        //             b:'meme',c:'dd' },{
+        //             th:'hah',
+        //             ab:['a',{
+        //                 doc:'doing'
+        //             }]
+        //         }
+        //     ]
+        // }
+        //通过let可以结构化赋值
+        // let {a:s,a:[x,{b,c},{th,ab:[z,{doc}]}]} = arr;
+        // console.log(s);
+        
+    
+        // var str = 'helloWord';
+        // var newStr = `hello Word`;
+        // console.log(newStr);
+        
+        // var str = `
+        // <div>
+        //     <span>asss</span>
+        // </div>
+        // `;
+        // document.getElementsByTagName('body')[0].innerHTML= str;
+        
+        // var xm = {
+        //     name : 'xiaoming',
+        //     age : 20,
+        //     sex : 'male'
+        // }
+        // var {name,age,sex} = xm;
+        // console.log(name,age,sex)
+        // console.log(`${name},${age},${sex}`)
+        
+        // var x = 3, y = 5;
+        // var num = `${x + y}`
+        // console.log(num);
+
+        // function getName(){
+        //     return 'xiaoming';
+        // }
+        // console.log(`${getName()}`);
+
+        // var arr = [1,2,3,4,5];
+        // var resStr = `${arr.map(function(item,index){
+        //     return `${item} + ${index}`
+        // })}`;
+        // console.log(resStr);
+
+
+        // `${console.log(`SADFDSAS`)}`;
+
+        // function show(str){
+        //     console.log(str);
+        // }
+        // show`xiaoming`;
+
+        // //防止注入
+        // var name = '<script>alert("a")</\script>'; 
+        // safeHtml`<p>${name} Welcome to duyii!!!!</p>`;
+        // function safeHtml(data){
+        //     var str;
+        //     for(let i = 1 ; i < arguments.length; i++){
+        //         var arg = String(arguments[i]);
+        //         str += arg.replace(/</g,'&nbsp').replace(/&/g,'&amp');
+        //         str += data[i];
+        //     }
+        //     console.log(str);
+        // }
+        
+
+
+   </script>   
+</body>
+</html>

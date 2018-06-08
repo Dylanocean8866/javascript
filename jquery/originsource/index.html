@@ -33,7 +33,7 @@
                     return this;
                 }
             }
-           //暴露jQuery在window上， 并且把window.$暴露出来， 外面可以通过$的方式调用， 跟jQuery一样
+           // 并且把window.$暴露出来， 外面可以通过$的方式调用， 跟jQuery一样
            window.$ = window.jQuery = jQuery;  
            //把jQuery.prototype.init.prototype 变成 jQuery.prototype , 这样就能拿到所有jQuery上的方法
            jQuery.prototype.init.prototype = jQuery.prototype;

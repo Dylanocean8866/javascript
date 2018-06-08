@@ -229,12 +229,19 @@
         .setting>div{
             width:0px;
             border:solid transparent 10px;
-            border-bottom:solid blue 10px;
-            border-bottom-color:#d8d8d8;
-            border-left:solid transparent 10px;
-            border-right:solid transparent 10px;
+            border-bottom:solid #d8d8d8 10px;
             margin:0 auto;
             margin-top:-20px;
+            position: relative;
+        }
+        .setting>div::after{
+            content: '';
+            display: block;
+            border:solid transparent 9px;     
+            border-bottom:solid #fff 9px; 
+            position:absolute;
+            top:-7px;
+            left:-9px; 
         }
         .setting a{
             font-size:13px;
@@ -262,7 +269,8 @@
             <li>登录</li>
             <li>设置
                 <div class="setting">
-                    <div></div>
+                    <div>
+                    </div>
                     <a>搜索设置</a>
                     <a>高级搜索</a>
                     <a>关闭预测</a>

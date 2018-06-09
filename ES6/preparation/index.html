@@ -7,11 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="demo">
-
-    </div>
+        <div class="demo">1</div>
+        <div class="demo">2</div>
+        <div class="demo">3</div>
+        <div class="demo">4</div>
+        <div class="demo">5</div>
+        <div class="demo">6</div>
+        <div class="demo">7</div>
+        <div class="demo">8</div>
+        <div class="demo">9</div>
+        <div class="demo">10</div>
     <script>
-        // let {bar:bar} = {foo:123,bar:12}
+        function lesson(){
+                    // let {bar:bar} = {foo:123,bar:12}
         // console.log(bar);
 
         // let {foo:bar} = {foo:124}
@@ -155,8 +163,8 @@
         //     console.log(str);
         // }
         // show`xiaoming`;
-
-        // //防止注入
+ 
+        // //防止注入   标签模板
         // var name = '<script>alert("a")</\script>'; 
         // safeHtml`<p>${name} Welcome to duyii!!!!</p>`;
         // function safeHtml(data){
@@ -168,7 +176,299 @@
         //     }
         //     console.log(str);
         // }
+
         
+        // //函数参数可以给默认值
+        // function Person(name,age = 18){
+        //     // if(typeof age == 'undefined'){
+        //     //     var age = age || 18;
+        //     // }
+        //     console.log(name,age)   
+        // }
+
+        // Person('xm');
+        // Person('xm',12);
+        // Person('xm',0);
+        // Person('xm',null);
+        // Person('xm',false);
+
+        // //结构赋值
+        // function fn({x,y=5}){
+        //     console.log(x,y);
+        // }
+        // fn({})
+        // fn({x:1})
+        // fn({x:1,y:3});
+        // // fn();  //报错  x  undefined
+
+        // function f1({x=0,y=0} = {}){
+        //     console.log(x,y);
+        // }
+        // function f2({x,y} = {x:0,y:0}){
+        //     console.log(x,y)
+        // }
+        // f1();
+        // f2();
+        // f1({x:1,y:2});
+        // f2({x:1,y:2})
+        // f1({x:1})
+        // f2({x:1})      
+        
+        //有默认值的声明方式默认是通过let    
+        // function fn(x=5){    // x,x,y=5  这样也不行， 因为y通过let方式申明， 且有默认值5 ， 所有前面的两个x，都会以let方式申明， 报错
+        //     let x = 10;  //报错， 重复声明
+        //     console.log(x);  
+        // }
+        // fn();
+
+        // let x = 10;    //如果这里去掉， 会报错
+        // function fn(y=x){
+        //     let x = 1;
+        //     console.log(y);
+        // }
+        // fn();
+
+        // function fn(...arg){
+        //     console.log(...arg);
+        // }
+        // fn.call(null,1,2,3,4,5);
+        // fn.apply(null,[1,2,3,4])
+
+        // var arr = [1,2,3,4];
+        // console.log(...arr);
+        
+
+        // var f = num => num;  箭头函数  调用f(3);   返回3
+        // var f = (num1,num2) =>
+        //     1+2+num1+num2;
+        // console.log(f(1,2));    
+        //返回一个对象
+        // var f = () => ({name:124});
+        // console.log(f());
+
+        // var f = (num1,num2) =>{
+        //        num3 = String(num1).replace(/\d+/g,'aa');
+        //        console.log(num3+num2);
+        //        console.log(this);
+        // };
+
+        // f(1,2);
+
+        //箭头函数中没有， this  没有arguments  跟arguments相同的有 ...arg 用法如下
+        // var obj = {
+        //     age:18,
+        //     getAge : (...arg) =>  console.log(...arg) 
+        // }
+        // console.log(obj.getAge(1,2,4));
+
+        //测试， 不用箭头函数写getAge 谁调用指向谁
+        // var obj = {
+        //     age:16,
+        //     getAge:function(){
+        //         console.log(this.age);
+        //     }
+        // }   
+        // obj.getAge();
+
+        //嵌套函数
+        // function fn(str){
+        //     return function(){
+        //         return str.split('')
+        //     }
+        // }
+        
+        // console.log(fn('123')());
+        //箭头函数多重嵌套
+        // var fn = (str) => () => str.split('');
+        // console.log(fn('123')());
+
+        // var arr = [1,2];   
+        // var arr1 = [1,2,2,4,5];
+        // arr.push(1,2,3,4,54,6,7,7,8);  方式1
+        // arr.push(...arr1);  //方式2
+        // console.log(arr);
+        //之前的方式3
+        // Array.prototype.push.apply(arr,arr1);
+        // console.log(arr);
+        //方式4
+        // var arrt = arr.concat(arr1);
+        // console.log(arrt);
+        //方式5
+        // var newArr = [...arr,...arr1];
+        // console.log(newArr);
+        
+        // var [x,...y]= [1,[1,2,3,45]]
+        // console.log(x,y);
+
+        // var x=[...'xiaoming'];
+        //扩展运算符可以在特定的情况下把类数组
+        // var [x,y] = ['hah',[...'xiaoming']];
+        
+        //Array.from 新方法， 将类数组， 转化成数组
+        // var arr = Array.from('string');
+        // console.log(arr);
+        
+        // var obj = {
+        //     '0':'d',
+        //     '1':'a',
+        //     '2':'b',
+        //     '3':'c',
+        //     length:4
+        // }
+
+        // var arr = Array.from(obj,function(item,index){
+        //     return item + index;
+        // });
+        // var arr1 = Array.from(obj).map((item,index) => item + index);
+        // console.log(arr);
+        // console.log(arr1);
+        }
+        
+        //通过dom元素，获取一组dom元素中的数据
+        // var divs = document.getElementsByTagName('div');
+        // var arr = Array.from(divs,(item,index) => item.innerText + index);
+        // console.log(arr);
+        
+        //通过Array.from 把一个数组赋值给新数组, 是完全的新数组,修改不会影响之前的数组
+        // var arr = [1,2,3,4,5];
+        // var arr1 = Array.from(arr);
+
+        // function typeo(){
+        //     return Array.from(arguments,item => typeof item);
+        // }
+
+        // console.log(typeo('1',false,NaN,null,[]));
+        
+        // //Array.of 可以把一组数转化成数组
+        // var arr = Array.of(1,2,3,4,5);
+        // console.log(arr);
+        
+        // //上面的用法类似  new Array  写多个返回数组， 写一个返回特定长度的数组
+        // var arr1 = new Array(1,2,3,4,5);
+        // console.log(arr1);
+        
+        // function arrayOf(){
+        //     //这里如果不用Array.from 我们之前用Array.prototype.slice.call(arguments); 最终返回一个数组
+        //     return Array.from(arguments); 
+        // }
+        // console.log(arrayOf(1,2,3,4));
+
+        //数组实例
+        // var arr = [1,2,3,4,5];
+        // var newArr =  Array.prototype.copyWithin(arr,start=0,end=this.length);
+        //两个参数代表,比如0,3， 在0的位置用 后面下标是3往后所有的内容来代替，有几位算几位
+        //三个参数， 第三位代表截图几位在指定的位置显示，  
+        // console.log(arr.copyWithin(1,3,4));  
+
+
+        //arr.fill
+        // var arr = new Array(10);
+        // arr.fill(5); //扫雷的时候可以把所有格子默认fill为0  
+        // arr.fill(5,3,4); //如果后面指定位置，就可以指定填充
+        // console.log(arr);
+		// var arr = ['2',2,3,4,5,6];
+        // console.log(arr.keys());
+        //通过for of  可以去除所有的key
+        // for(key of arr.keys()){
+        //     console.log(key);
+        // }
+        //产生一个迭代器对象，通过for of来取值
+        // for([item,index] of arr.entries()){
+        //     console.log(item,index);
+        // }
+
+        // var arr = ['2',2,3,4];
+        // var a = arr.values();
+        // console.log(a.next())
+
+        // var arr = [1,2,3,4];
+        //返回满足条件的第一个数
+        // var num = arr.find(item => item >2);
+        //返回满足条件的第一个数的下标
+        // var num = arr.findIndex(item => item >2);
+        //上面的方法有点想indexOf  只不过可以自己定义查询的条件  返回找到的下标， 找不到返回-1
+        // var num = arr.indexOf(4);
+        // console.log(num);    
+        //includes  对象判断查询的对象是否在数组中，
+        // var b = arr.includes(366);
+        // console.log(b);
+        
+        // var arr = [NaN];
+        // //include方法能判断是否有NaN   
+        // var num1 = arr.includes(NaN);
+        // console.log(num1);
+        
+        // var obj = {
+        //     name:'xiaowang',
+        //     age:12,
+        //     //ES6的简写方式
+        //     getMsg(){
+        //         console.log(this.name,this.age);
+        //     }
+        // }
+
+        // obj.getMsg();
+        
+        //属性表达式
+        // var foo = '123';
+        // var name = 'name';
+        // var age = 'age';
+        // var obj = {
+        //     [name] :'xm',
+        //     [age]: 16
+        // }
+        // console.log(obj.name,obj.age);
+            
+        // var obj =  {
+        //     age:14,
+        //     name:'xm'
+        // }
+        // console.log(Object.getOwnPropertyDescriptor(obj,'age'));
+        // console.log(Object.getOwnPropertyDescriptor(Object.prototype,'toString'))
+
+        // console.log(Object.is(NaN,NaN));
+        // console.log(NaN === NaN)
+        
+
+        // var arr = [1,2,3,4,5,6];
+
+        // for([item,index] of arr.entries()){
+        //     console.log(item,index);
+        // }
+            
+        // var obj = {}
+        // var obj1 = {name:'xm'}
+        // var obj2 = {age:14}
+        // var newObj =Object.assign(obj,obj1,obj2);
+        
+        // var {...c} = {a:123,b:123,d:124,c:432};
+        // console.log(c)
+        //合并多个对象
+        // var obj = {name:'dg'}
+        // var obj1 = {age:12}
+        // var newObj ={...obj,...obj1};
+        // console.log(newObj)
+
+        // var obj = {name:1234}
+        // var obj1 = {age:12}
+        // let merge = (target,...sources) =>Object.assign(target,...sources);
+
+        //对象的遍历， 返回数组
+        // var obj = {
+        //     name:'xm',
+        //     age:12,
+        //     getMsg(){
+        //         console.log('a');
+        //     }
+        // }
+        
+        // var keys = Object.keys(obj);
+        // var values = Object.values(obj);
+        // var entries = Object.entries(obj);
+
+        // for([item,index] of Object.entries(obj)){
+        //     console.log(item,index)
+        // }
 
 
    </script>   

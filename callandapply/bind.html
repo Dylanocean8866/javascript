@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bind思考， 调用bind会返回一个function，function中可以return value</title>
+</head>
+<body>
+
+    <script>
+        
+        var obj = {
+            value:'obj'
+        }
+        
+        function show(name,age,sex,hobby){
+            return {
+                name:name
+            }
+        }
+
+        Function.prototype.myBind = function(ctx){
+            var self = this;
+            var args = [];
+            var _args = arguments;
+            for(var i = 1; i < _args.length; i++){
+                args.push('_args['+ i +']');
+            }
+             return function(){
+                ctx = ctx || window;
+                ctx.fn = self;                
+                var result = eval('ctx.fn('+ args.join(',') +')');
+                delete ctx.fn;
+                return result;
+             }
+        }
+        var newShow = show.myBind(obj,'dg',15,'male','reading');
+        console.log(newShow());
+
+
+    </script>
+    
+</body>
+</html>

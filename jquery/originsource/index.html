@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <!-- <script src="../jquery-3.3.1.js"></script> -->
+    <script>
+        (function () {
+            function jQuery(str){
+                return new jQuery.prototype.init();
+            }
+            jQuery.fn = jQuery.prototype = {
+                init:function(str){
+                        this[0] = document.getElementsByClassName('box1')[0];
+                        this[1] = document.getElementsByClassName('box1')[1];
+                        this.length = 2;
+                         return this;
+                },
+                html:function(){
+                    console.log('html')
+                    return this;
+                },
+                css:function(){
+                    console.log('css');
+                    return this;
+                }
+            }
+           // 并且把window.$暴露出来， 外面可以通过$的方式调用， 跟jQuery一样
+           window.$ = window.jQuery = jQuery;  
+           //把jQuery.prototype.init.prototype 变成 jQuery.prototype , 这样就能拿到所有jQuery上的方法
+           jQuery.prototype.init.prototype = jQuery.prototype;
+        })();
+        $('s').html().css();
+    </script>
+</body>
+
+</html>

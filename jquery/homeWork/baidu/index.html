@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>百度一下，你就知道</title>
+    <style>
+        *{
+            padding:0px;
+            margin:0px;
+            list-style:none;
+            font-size: 0px;
+        }
+        .titleBox{
+            width:482.81px;
+            height:24px;
+            position:absolute;
+            top:23px;
+            right:5px;
+            /* z-index:9999999; */
+        }
+        .titleBox li{
+            float:left;
+            margin-left:20px;
+            font-size:13px;
+            color:#333;
+            text-decoration:underline;
+            font-weight:bold;
+        }
+        .titleBox li:hover{
+            color:#00c;
+        }
+        .titleBox li:nth-child(7){
+            font-weight: normal;
+        }
+        .titleBox li:nth-child(8){
+            font-weight: normal;
+        }
+        
+        .titleBox li:nth-child(9){
+            font-weight: normal;
+            background:#38f;
+            color:#fff;
+            padding:3px;
+            width:61px;
+            height:18px;
+            line-height:18px;
+            text-decoration:none;
+            margin-top:-4px;
+            text-align: center;
+            cursor:pointer;
+        }
+        .rightBox{
+            width:86px;
+            height: 100%;
+            position: absolute;
+            right:0px;
+            top:0px;
+            background:#f9f9f9;
+            border-left:solid #e7e7e7 1px;
+            display:none;
+            overflow: hidden;
+            cursor:pointer;
+        }
+        .rightBox ul li{
+            font-size:13px;
+            float:left;
+            width:66px;
+            height: 76px;
+            margin:auto 9.5px auto 9.5px;
+            text-align:center;
+            border-top:solid #e7e7e7 1px;
+            color:#666;
+        }
+
+
+        .rightBox ul li div{
+            width:36px;
+            height: 36px;
+            margin :10px 15px 5px 15px;
+            background:url(right.png)
+        }
+        .rightBox ul li:nth-child(1){
+            height: 55px!important;
+        }
+        .rightBox ul li:nth-child(1) p{
+            font-size:13px;
+            margin-top:22px;
+        }
+        .rightBox ul li:nth-child(3)>div{
+            background-position: 182px 0px;
+        }
+        .rightBox ul li:nth-child(4)>div{
+            background-position: 144px 0px;
+        }
+        .rightBox ul li:nth-child(5)>div{
+            background-position: 220px 0px;
+        }
+        .rightBox ul li:nth-child(6)>div{
+            background-position: 110px 0px;
+        }
+        .rightBox ul li:nth-child(7)>div{
+            background-position: 73px 0px;
+        }
+        .rightBox ul li:nth-child(8){
+            font-size:12px;
+            padding-top:12px;
+        }
+        .mainBox{
+            width:640px;
+            height:auto;
+            margin:0 auto;
+            /* background:#ccc; */
+            margin-top:185px;
+        }
+        .mainBox .lg{
+            width:270px;
+            height: 129px;
+            margin:0 auto;
+        }
+        .mainBox .lg>img{
+            width:100%;
+        }
+        .inputBox{
+            width:640px;
+            height: 36px;
+            margin-top:20px;
+        }
+        .inputBox span:nth-child(1){
+            width:538px;
+            height:36px;
+            border:solid #b6b6b6 1px;
+            float: left;
+            position: relative;
+        } 
+        .inputBox span:nth-child(2){
+            width:98px;
+            height:36px;
+            border:solid #3385ff 1px;
+            background:#3385ff;
+            float: left;
+            color:#fff;
+            font-size:15px;
+            text-align:center;
+            line-height:36px;
+        }
+        .inputBox input{
+            width:500px;
+            height:22px;
+            margin:6px 0px 0px 7px;
+            border:0;
+            outline:0;
+            font-size:15px;
+            background:transparent;
+            -webkit-appearance:none;
+        }
+        .cma{
+            width:18px;
+            height:16px;
+            background-image:url(pic.png);
+            position: absolute;
+            top:10px;
+            right:5px;
+        }
+        .bottom{
+            margin-top:385px;
+        }
+        .bottom .ewm{
+            width:60px;
+            height:60px;
+            margin:0 auto;
+        }
+        .bottom p{
+            font-size:13px;
+            color:#999;
+            text-align:center;
+        }
+        .bottom p a{
+            font-size:13px;
+            color:#999;
+            margin-left:25px;
+        }
+        .bottom p:nth-child(2){
+            font-weight: bold;
+            margin-top:8px;
+        }
+        .bottom p:nth-child(3){
+            margin-top:27px;
+        }
+        .bottom p:nth-child(4){
+            margin-top:7px;
+        }
+        .bd{
+            color:#666!important;
+        }
+        .bottom p:nth-child(4) i:nth-child(1) {
+            width:14px;
+            height:17px;
+            background-image:url(icon.png);
+            background-position: -600px -96px;
+            display: inline-block;
+            vertical-align: bottom;
+            margin-left:4px;
+            margin-right:20px;
+        }
+        .bottom p:nth-child(4) i:nth-child(2) {
+            width:14px;
+            height:17px;
+            background-image:url(icon.png);
+            background-position: -623px -96px;
+            display: inline-block;
+            margin-left:4px;
+            vertical-align: bottom;
+        }
+        .cmaHover{
+            background-position:0px -20px;
+        }
+        .setting{
+            position: absolute;
+            top:28px;
+            right:65px;
+            width:72px;
+            height:106px;
+            border: 1px solid #d1d1d1;
+            box-shadow:1px 1px 10px 1px #ccc;
+            display: none;
+        }
+        .setting>div{
+            width:0px;
+            border:solid transparent 10px;
+            border-bottom:solid #d8d8d8 10px;
+            margin:0 auto;
+            margin-top:-20px;
+            position: relative;
+        }
+        .setting>div::after{
+            content: '';
+            display: block;
+            border:solid transparent 9px;     
+            border-bottom:solid #fff 9px; 
+            position:absolute;
+            top:-7px;
+            left:-9px; 
+        }
+        .setting a{
+            font-size:13px;
+            display: block;
+            text-align: center;
+            padding:4px 0px;
+            color:#424242;
+        }
+        
+        .titleBox li:nth-child(8):hover .setting{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="titleBox">
+        <ul>
+            <li>新闻</li>
+            <li>hao123</li>
+            <li>地图</li>
+            <li>视频</li>
+            <li>贴吧</li>
+            <li>学术</li>
+            <li>登录</li>
+            <li>设置
+                <div class="setting">
+                    <div>
+                    </div>
+                    <a>搜索设置</a>
+                    <a>高级搜索</a>
+                    <a>关闭预测</a>
+                    <a>搜索历史</a>
+                </div>
+            </li>
+            <li class="more">更多产品</li>
+        </ul>
+    </div>
+    <div class="rightBox" >
+        <ul>
+           <li>
+            <p>
+             更多产品
+            </p>   
+            </li>
+            <li>
+               <div></div>
+                糯米
+            </li>
+            <li><div></div>音乐</li>
+            <li><div></div>图片</li>
+            <li><div></div>知道</li>
+            <li><div></div>文库</li>
+            <li><div></div>风云榜</li>
+            <li>全部产品>></li>
+        </ul>
+    </div>
+
+    <div class="mainBox">
+        <div class="lg">
+                <img src="baidu.png" alt="">
+        </div>
+        <div class="inputBox">
+            <span>
+                <input type='text'>
+                <div class="cma">
+
+                </div>
+            </span>
+            <span>百度一下</span>
+        </div>
+
+        <div class="bottom">
+            <div class="ewm">
+                <img src="ewm.png" alt="">
+            </div>
+            <p class="bd">百度</p>
+
+            <p>
+                    <a>  把百度设为主页</a>  <a>关于百度</a> <a>About  Baidu</a>  <a>百度推广</a>     
+            </p>
+            <p>©2018 Baidu 使用百度前必读 意见反馈 京ICP证030173号<i></i>  京公网安备11000002000001号<i></i> </p>
+        </div>
+    </div>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        $('.more').hover(function(e){
+            $('.rightBox').slideDown(50);
+            $(this).css('background','transparent').css('color','#424242')
+        });
+        $('.rightBox').on('mouseleave',function(){
+            $('.rightBox').slideUp(50);
+            $('.more').css('background','#38f').css('color','#fff')
+        })
+        $('.cma').on('mouseover',function(){
+            $('.cma').addClass('cmaHover');
+        }).on('mouseout',function(){
+            $('.cma').removeClass('cmaHover');
+        })
+    </script>
+
+</div>
+</body>
+</html>

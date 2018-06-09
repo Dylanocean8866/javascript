@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style:none;
+            /* font-size:0px; */
+        }
+        .demo{
+            width:400px;
+            margin:0 auto;
+            margin-top:100px;
+            cursor:pointer;
+        }
+        .demo li{
+            color:#424242;
+            background:#ccc;
+            width:400px;
+            margin-top:3px;
+            text-align:center;
+            font-weight: bold;
+        }
+        .demo li ul li{
+            margin-top:3px;
+            background:#999;
+            color:#fff;
+        }
+        .demo li ul{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <ul class="ful">
+            <li>菜单A
+                <ul>
+                    <li>子菜单A</li>
+                    <li>子菜单A</li>
+                    <li>子菜单A</li>
+                    <li>子菜单A</li>
+                </ul>
+            </li>
+            <li>菜单B
+                <ul>
+                    <li>子菜单B</li>
+                    <li>子菜单B</li>
+                    <li>子菜单B</li>
+                    <li>子菜单B</li>
+                </ul>
+            </li>
+            <li>菜单C
+                <ul>
+                    <li>子菜单C</li>
+                    <li>子菜单C</li>
+                    <li>子菜单C</li>
+                    <li>子菜单C</li>
+                </ul>
+            </li>
+            <li>菜单D
+                <ul>
+                    <li>子菜单D</li>
+                    <li>子菜单D</li>
+                    <li>子菜单D</li>
+                    <li>子菜单D</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        $('.demo li').on('mouseenter',function(){
+            if($(this).find('ul').length !=0){
+                $('.demo li ul').stop().slideUp('slow');
+                $(this).find('ul').stop().slideDown('slow');
+            }
+        })
+    </script>
+</body>
+
+</html>

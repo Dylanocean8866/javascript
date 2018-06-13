@@ -48,6 +48,9 @@ $('document').ready(function () {
             this.itemWidth = itemW;  //每张图片的宽度
             this.bindEvent();  //事件fn
             this.autoMove();   //图片自动滚动，默认走move的next方向， 可以修改为prev 
+            this.mouseMove();
+        },
+        mouseMove:function(){
             var self = this;   //init中的this
             $('.btn-box a').add('.img-box').add('.order li').on('mouseenter', function () {
                 clearTimeout(self.timer);

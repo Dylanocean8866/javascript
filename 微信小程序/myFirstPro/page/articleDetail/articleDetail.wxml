@@ -10,7 +10,7 @@
         <text>{{articleData.author}}</text>
         <text>{{articleData.publishTime}}</text>
     </view>
-    <view class="media">
+    <view class="media">      
         <!-- <image  mode="widthFix" src="{{articleData.audio}}" /> -->
         <!-- <image src="{{articleData.audio.src}}" /> poster="http://img.soogif.com/9KBJkggZhYYnTHtCgrqlC7iIaQx8MyXn.gif_s400x0" -->
         <video id="myVideo" controls="true" 

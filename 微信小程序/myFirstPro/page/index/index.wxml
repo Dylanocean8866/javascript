@@ -1,0 +1,11 @@
+<!--page/index/index.wxml-->
+<!-- <text>page/index/index.wxml</text> -->
+<view class="contanier">
+    <image class="avatar" src="/images/2.jpg"/>
+    <text class="name"  decode="true" space="">oce  an</text>
+    <text class="intro" bind:tap="goWelcome" >welcome  ocean</text>
+</view>
+
+<!-- <view class="contanier2" hover-class="ceshi-hov">
+    <view class="innerC" hover-class="innerC-hov" hover-start-time="2000" hover-stay-time="2000" hover-stop-propagation="false"></view>
+</view> -->

@@ -1,0 +1,15 @@
+<!--page/detail/detail.wxml-->
+<!-- <text>page/detail/detail.wxml</text> -->
+<view class="container">
+    <view class="imgBox">
+        <image class="firstImg" mode="widthFix"  src="/images/1.jpg" />
+        <text class="description">是否要卸下残红熄灭骄纵才会被施以恩宠也曾是朱砂心口月光窗头怀一腔热血孤勇勇</text>
+    </view>
+    <view class="author">
+         <text bindtap="ceshi" class="authorText">---既生厌-哒哒</text>
+    </view>
+</view>
+<!-- 
+<view class="container" catch:tap="fatherTap">
+    <view class="sonContainer" catch:tap="sonTap"></view>
+</view> -->

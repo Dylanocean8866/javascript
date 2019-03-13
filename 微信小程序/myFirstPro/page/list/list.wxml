@@ -1,0 +1,58 @@
+<!--page/list/list.wxml-->
+<!-- <text>page/list/list.wxml</text> -->
+
+<!-- <view bindtap="parentTest" data-dataWho="parent111"  style="width:200rpx;height:200rpx;background:red;">
+    <view bindtap="childTest" data-dataWho="child111"  style="width:100rpx;height:100rpx;background:blue;"></view>
+</view> -->
+<!-- disabled="{{true}}"  loading="true" -->
+<!-- {{a}}
+<button open-type="share" size="mini" type="primary" plain="true"  class="btnShareWrap"> -->
+    <!-- <image src="/images/2.jpg" /> -->
+<!-- </button> -->
+<view class="contanier">
+    <view class="recommend-container">
+        <view class="recommend-article">
+              <text bind:tap="ceshi" class="data">{{newData.date}}</text>
+              <text class="recommend-title">{{newData.title}}</text>
+              <image mode="widthFix"  class="recommend-cover" src="{{homeData.reSrc}}" />  
+        </view>
+        <view class="recommend-box">
+            <text>+</text>
+            <text bindtap="onArticleTypeTap" wx:for="{{markType}}" wx:for-item="arrayItem" wx:for-index="arrayIndex" wx:key='typeId' data-articleTypeId="{{arrayItem.typeId}}" >{{arrayItem.type}}</text>
+            <text>...</text>
+        </view>
+    </view> 
+
+    <view class="recommend-list" wx:for="{{articleList}}" wx:key="id">
+        <view class="re-head">
+            <image class="logo-img" src="{{item.markPeopleAvatar}}"/>
+            <text>{{item.markPeople}}</text>
+            <text>wait</text>
+            <text>{{item.markCount}}</text>
+            <text>mark</text>
+        </view>
+        <view class="re-body">
+            <!-- <image mode='widthFix' class="list-img" src="{{item.markPeopleAvatar}}" /> -->
+                <image mode='widthFix' class="list-img" src="" />
+        </view>
+        <view class="re-title">
+            <text>{{item.articleTitle}}</text>
+        </view>
+        <view class="re-footer">
+            <view class="left-re-footer">
+                <text>{{item.articleType}}</text>
+            </view>
+            <view class="right-re-footer">
+                <view bind:tap="onMoreTap" data-articleType="{{item.articleType}}">
+                     <image class="pot" src="/images/2.jpg"/>
+                </view>
+                <view> <button open-type="share"  class="btnShare" ><image class="pot" src="/images/2.jpg"/></button></view>
+                <view >
+                    <image bindtap="onLikeTap" data-articleIndex="{{index}}" wx:if="{{likeList[index]}}" class="pot" src="/images/2.jpg"/>
+                    <image bindtap="onLikeTap" data-articleIndex="{{index}}" wx:else class="pot" src="/images/1.jpg"/>
+               </view>
+            </view>
+        </view>
+    </view> 
+ 
+</view>

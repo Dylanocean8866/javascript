@@ -1,0 +1,40 @@
+<!--page/articleDetail/articleDetail.wxml-->
+<!-- <text>page/articleDetail/articleDetail.wxml</text> -->
+<wxs src="../../utils/filter.wxs" module="filter"></wxs>
+<view class="container">
+    <view class="title">
+        <text>{{articleData.title}}</text>
+            <!-- <text>{{articleData.title}}</text> -->
+    </view>
+    <view class="authorInfo">
+        <text>{{articleData.author}}</text>
+        <text>{{articleData.publishTime}}</text>
+    </view>
+    <view class="media">
+        <!-- <image  mode="widthFix" src="{{articleData.audio}}" /> -->
+        <!-- <image src="{{articleData.audio.src}}" /> poster="http://img.soogif.com/9KBJkggZhYYnTHtCgrqlC7iIaQx8MyXn.gif_s400x0" -->
+        <video id="myVideo" controls="true" 
+        initial-time="0" duration="30" enable-danmu="{{true}}"  danmu-list="{{danmuList}}" danmu-btn="{{true}}"
+        src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+        >
+        <!-- wx:if="{{isCover}} -->
+            <cover-view class="controlsPic" hidden="{{isCover}}">
+                    <cover-image src="http://img.soogif.com/9KBJkggZhYYnTHtCgrqlC7iIaQx8MyXn.gif_s400x0"></cover-image>
+                    <cover-view class="controlsBox" bindtap="closeCover">
+                        <cover-image class="controlsBox-img" src="/images/2.jpg"></cover-image>
+                        <cover-view>10s</cover-view>
+                    </cover-view>
+            </cover-view>
+        </video>
+
+        <swiper interval="3000"  current="1" autoplay="{{true}}" indicator-dots="{{true}}" indicator-color="#f40" indicator-active-color="#f90" >
+            <swiper-item wx:for="{{articleData.banner}}" wx:key="{{this}}"><image src="{{item}}"/></swiper-item>
+        </swiper>
+    </view>
+    <view class="contentInfo">
+        <text decode="{{true}}">{{filter(articleData.content)}}</text>
+    </view>
+    <view class="readingNum">
+        <text>{{articleData.readNum}}</text>
+    </view>
+</view>

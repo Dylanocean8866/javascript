@@ -1,0 +1,36 @@
+/* page/detail/detail.wxss */
+page{
+    font-size:35rpx;
+}
+.container{
+    display: flex;
+    flex-direction:column;
+}
+.imgBox{
+    display: flex;
+    flex-direction:column;
+    padding:0 10rpx;
+}
+.firstImg{
+    width:730rpx;
+}
+.description{
+    margin-top:20rpx;
+    letter-spacing:5rpx;
+}
+.author{
+    align-self:flex-end;
+    margin-right:40rpx;
+}
+/* 
+.container{
+    width:200rpx;
+    height:200rpx;
+    background-color:red;
+}
+.sonContainer{
+    width:100rpx;
+    height:100rpx;
+    background-color:blue;
+} */
+

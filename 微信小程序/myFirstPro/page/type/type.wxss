@@ -1,0 +1,50 @@
+/* type/type.wxss */
+@import "../commenlist.wxss";
+page{
+    background:#ccc;
+}
+.headBox{
+    position: relative;
+    height: 650rpx;
+}
+.imgBox image{
+    /* opacity:0.1; */
+    width:750rpx;
+}
+.titleBox{
+    background:#fff;
+    width:650rpx;
+    height: 200rpx;
+    margin:0 auto;
+    position: absolute;
+    top:65%;
+    left:50rpx;
+    display:flex;   
+    justify-content:space-between;
+}
+.imgBoxSmall{
+    display: flex;
+    align-self:flex-end;
+    margin-right:30rpx;
+}
+
+.title{
+    margin-top:30rpx;
+    margin-left:30rpx;
+}
+.imgBoxSmall image{
+    width:60rpx;
+    height:60rpx;
+}
+
+.contanier-list{
+    width:650rpx;
+    padding:0 50rpx;
+}
+
+.left-re-footer{
+    border:solid #fff 1rpx;
+    line-height:40rpx;
+    margin-left:20rpx;
+    padding:10rpx 10rpx;
+}

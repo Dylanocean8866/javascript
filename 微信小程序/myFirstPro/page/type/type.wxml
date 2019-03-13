@@ -1,0 +1,51 @@
+<!--type/type.wxml-->
+<!-- <text>type/type.wxml</text> -->
+<view class="container">
+    <view class="headBox">
+        <view class="imgBox">
+            <image mode='widthFix' src="{{idData.imgSrc}}" />
+        </view>
+        <view class="titleBox">
+            <view class="title">{{idData.title}}</view>
+            <view class="imgBoxSmall">
+                <view><image src="/images/2.jpg" /></view>
+                <view><image src="/images/2.jpg" /></view>
+            </view>
+        </view>
+    </view>
+
+
+    <view class="contanier-list">
+        <view class="recommend-list" wx:for="{{articleList}}" wx:key="id">
+        <view class="re-head">
+            <image class="logo-img" src="{{item.markPeopleAvatar}}"/>
+            <text>{{item.markPeople}}</text>
+            <text>wait</text>
+            <text>{{item.markCount}}</text>
+            <text>mark</text>
+        </view>
+        <view class="re-body">
+            <!-- <image mode='widthFix' class="list-img" src="{{item.markPeopleAvatar}}" /> -->
+                <image mode='widthFix' class="list-img" src="" bindtap="onTap" data-articleId="{{item.id}}" />
+        </view> 
+        <view class="re-title">
+            <text>{{item.articleTitle}}</text>
+        </view>
+        <view class="re-footer">
+            <view class="left-re-footer">
+                <text>{{item.articleType}}</text>
+            </view>
+            <view class="right-re-footer">
+                <view bind:tap="onMoreTap" data-articleType="{{item.articleType}}">
+                     <image class="pot" src="/images/2.jpg"/>
+                </view>
+                <view> <button open-type="share"  class="btnShare" ><image class="pot" src="/images/2.jpg"/></button></view>
+                <view >
+                    <image bindtap="onLikeTap" data-articleIndex="{{index}}" wx:if="{{likeList[index]}}" class="pot" src="/images/2.jpg"/>
+                    <image bindtap="onLikeTap" data-articleIndex="{{index}}" wx:else class="pot" src="/images/1.jpg"/>
+               </view>
+            </view>
+        </view>
+    </view> 
+    </view>
+</view>

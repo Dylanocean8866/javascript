@@ -1,0 +1,45 @@
+/* page/index/index.wxss */
+page{
+    background:#efe;
+}
+.contanier{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:200rpx;
+}
+
+.avatar{
+    width:160rpx;
+    height:160rpx;
+    margin-top:200rpx;
+    border-radius:50%;
+}
+.name{
+    color:#666;
+    font-size:28rpx;
+    margin-top:60rpx;
+    text-align-last:justify;
+}
+.intro{
+    border:2rpx solid #ccc;
+    padding:20rpx 20rpx;
+    margin-top:200rpx;
+}
+
+.contanier2{
+    width:200rpx;
+    height:200rpx;
+    background:#fef;
+}
+.ceshi-hov{
+    background-color:red;
+}
+.innerC{    
+    width:100rpx;
+    height:100rpx;
+    background:yellow;
+}
+.innerC-hov{
+    background:blue;
+}

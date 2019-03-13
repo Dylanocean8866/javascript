@@ -1,0 +1,70 @@
+/* page/articleDetail/articleDetail.wxss */
+page{
+ 
+}
+image{
+    opacity:0.2;
+}
+.container{
+
+}
+.title{
+    padding:20rpx 5rpx;    
+}
+.title text{
+    font-size:50rpx;
+}
+.authorInfo{
+    padding:10rpx 5rpx;
+    font-size:35rpx;
+    color:rgb(70, 69, 69);
+}
+.media image{
+    width:740rpx;
+    padding:5rpx;
+}
+.contentInfo{
+    padding:5rpx;
+    font-size:30rpx;
+    color:rgb(22, 22, 22);
+    text-indent:2em;
+} 
+.readingNum{
+    float:right;
+    margin-right:10rpx;
+}
+.media{
+    display: flex;
+    justify-content:center;
+}
+.media video{
+    width:700rpx;
+    height:500rpx;
+}
+.controlsPic{
+    width:700rpx;
+    height:500rpx;
+    background:red;
+    position: relative;
+    opacity: 0.1;
+}
+
+.controlsBox{
+    position: absolute;
+    top:calc(50% - 50rpx);
+    left:calc(50% - 50rpx);
+    width:100rpx;
+    height:100rpx;
+    border:solid red 1px;
+    border-radius:50%;
+    font-size:20rpx;
+    color:#ccc;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content:center;
+}
+.controlsBox-img{
+    width:50rpx;
+    height:50rpx;
+}

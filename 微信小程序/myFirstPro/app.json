@@ -1,8 +1,8 @@
 {
   "pages": [
+    "page/list/list",
     "page/articleDetail/articleDetail",
     "page/type/type",
-    "page/list/list",
     "page/index/index",
     "page/detail/detail"
   ]

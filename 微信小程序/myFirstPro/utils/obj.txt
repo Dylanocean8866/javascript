@@ -17,3 +17,79 @@
     "readNum": "5090"
   }
 }
+
+
+11
+{
+  "code": 0,
+  "msg": "OK",
+  "data": {
+    "title": "人生呐，只有吃不可辜负",
+    "author": "单向街书店",
+    "publishTime": "2018-10-14",
+    "banner": [],
+    "video": {},
+    "audio": {
+      "src": "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E06DCBDC9AB7C49FD713D632D313AC4858BACB8DDD29067D3C601481D36E62053BF8DFEAF74C0A5CCFADD6471160CAF3E6A&fromtag=46",
+      "poster": "http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000",
+      "singer": "许巍",
+      "title": "此时此刻",
+      "from": "来自单向街书店",
+      "audioTitle": "人生呐，只有吃不可辜负",
+      "duration": 401
+    },
+    "content": "「吃」对人类来说，是本能，是礼节，也是艺术。\n《罗曼蒂克消亡史》，葛优谈事情，要在茶楼里，饭桌上。\n无论阴谋如何在桌底下暗潮涌动，饭桌上，还是那简单的几碗粥、几碟小菜、几笼点心。要办上不了台面的事，必须得泡一壶茶，再上一些点心。无论事情再紧迫，点心吃完了，餐具还是要依次撤下。威胁、勒索，少不了一杯酒的侍奉。拒绝威逼利诱，用的是一个手势，与一声干脆利落的「喝茶」。不想掺和阴险的纷争，就用一句「我去吃饭了」搪塞。\n而在家里边，吃，更是毫不含糊。即使一碗粥，女管家也要先尝过，咸了，就重做。人吃的讲究，猫也是，一碗猫食，要用螃蟹熬煮，再放上鲜切的鱼排。食物是精巧的，人是复杂的。那里头的烟火情仇和人生薄凉，让人嘘唏哑然。\n食物是精巧的，人是复杂的。那里头的烟火情仇和人生薄凉，让人嘘唏哑然。",
+    "readNum": "5098"
+  }
+}
+
+
+
+SDKVersion
+:
+"2.6.2"
+batteryLevel
+:
+100
+brand
+:
+"devtools"
+errMsg
+:
+"getSystemInfo:ok"
+fontSizeSetting
+:
+16
+language
+:
+"zh"
+model
+:
+"iPhone 6"
+pixelRatio
+:
+2
+platform
+:
+"devtools"
+screenHeight
+:
+667
+screenWidth
+:
+375
+statusBarHeight
+:
+20
+system
+:
+"iOS 10.0.1"
+version
+:
+"6.6.3"
+windowHeight
+:
+603
+windowWidth
+:
+375

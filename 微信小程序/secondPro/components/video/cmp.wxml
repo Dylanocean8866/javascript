@@ -1,0 +1,18 @@
+<!--components/video/cmp.wxml-->
+<!-- <text>components/video/cmp.wxml</text> -->
+<view class="container">
+        <video  bindended="onbindStop" id="{{vid}}" hidden="{{isShowVideo}}" class="video" src="{{src}}" />
+        <view catchtap="playVideo" hidden="{{!isShowVideo}}" class="coverImg">
+               <image  class="gifPic" src="{{poster}}" />
+               <view>
+                   <image class="tubiao" src="http://photocdn.sohu.com/20150909/mp31139342_1441765361306_3.gif" />
+                   <text class="duration">50s</text>
+               </view>
+        </view>
+        <view catchtap="onMask" hidden="{{isShowVideo}}" class="mask">
+
+        </view>
+        <view class="mian-title">
+            {{mainTitle}}
+        </view>
+</view>

@@ -1,0 +1,26 @@
+/* components/article/cmp.wxss */
+.container{
+    background:#fff;
+}
+.markContainer{
+    padding:10rpx 25rpx;
+}
+.image{
+    width:40rpx;
+    height:40rpx;
+    vertical-align:middle;
+    padding-right:10rpx;
+}
+.text{
+    font-size:35rpx;
+    color:rgb(29, 29, 29);
+    line-height:35rpx;  
+}
+.footContainer{
+    display: flex;
+    justify-content:space-between;
+    padding:0 25rpx;
+}
+.rightBox{
+    display: flex;
+}

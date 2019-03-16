@@ -1,0 +1,38 @@
+<!--components/article/cmp.wxml-->
+<!-- <text>components/article/cmp.wxml</text> -->
+<view  class="container">
+    <view class="markContainer">
+        <image class="image" src="{{articleDetail.mark.avatar}}" />
+        <text class="text">{{articleDetail.mark.people}}等{{articleDetail.mark.count}}人mark了</text>
+    </view>
+    <view>
+            <d-bigimg wx:if="{{articleDetail.type == 0}}" 
+                   mainTitle="{{articleDetail.mainTitle}}" 
+                   imgSrc="{{articleDetail.imgArray[0]}}"/>
+            <d-imgtext wx:elif="{{articleDetail.type == 2}}"
+                   imgSubText="{{articleDetail.subHead}}" 
+                   imgTextSrc="{{articleDetail.imgArray[0]}}"
+                   imgMainText="{{articleDetail.mainTitle}}" />
+            <d-niceimg wx:elif="{{articleDetail.type == 1}}"
+                   mianTitle="{{articleDetail.mainTitle}}" 
+                   imgArr="{{articleDetail.imgArray}}" />
+            <d-video wx:elif="{{articleDetail.type == 3}}" 
+                   vid="{{articleDetail.video.id}}" 
+                   src="{{articleDetail.video.src}}" 
+                   duration="{{articleDetail.video.duration}}"
+                   mainTitle="{{articleDetail.mainTitle}}"
+                   poster="{{articleDetail.video.poster}}" /> 
+            <d-puretext  wx:else 
+                   mianTitle="{{articleDetail.mainTitle}}" 
+                   subText="{{articleDetail.subHead}}"/>
+   </view>
+   <view class="footContainer">
+       <view>
+            <d-tag tag="{{articleDetail.tag}}" tagId="{{articleDetail.tagId}}" />
+       </view>
+       <view class="rightBox">
+            <d-more dataTag="{{articleDetail.tag}}" isLike="{{true}}" />
+            <d-like isLike="{{true}}" />
+       </view>
+   </view>
+</view>

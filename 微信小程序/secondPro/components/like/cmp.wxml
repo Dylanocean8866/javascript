@@ -1,0 +1,6 @@
+<!--components/like/cmp.wxml-->
+<!-- <text>components/like/cmp.wxml</text> -->
+<view>
+    <image catchtap="likeMark" hidden="{{isLike}}" class="image" src="images/1.jpg" />
+    <image catchtap="likeMark" hidden="{{!isLike}}" class="image" src="images/2.jpg" />
+</view>

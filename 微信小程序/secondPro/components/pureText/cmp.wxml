@@ -1,0 +1,10 @@
+<!--components/pureText/cmp.wxml-->
+<!-- <text>components/pureText/cmp.wxml</text> -->
+<view class="container">
+    <view class="main-title">
+    {{mianTitle}}
+    </view>
+    <view class="sub-head">
+    {{subText}}
+    </view>
+</view>

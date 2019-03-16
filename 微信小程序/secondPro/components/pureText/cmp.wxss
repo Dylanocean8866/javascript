@@ -1,0 +1,14 @@
+/* components/pureText/cmp.wxss */
+.container{
+    padding:20rpx 20rpx;
+}
+.main-title{
+     font-size:35rpx;
+}
+.sub-head{
+    font-size:20rpx;
+    padding:25rpx 0rpx;
+    color:#999;
+}
+
+

@@ -1,0 +1,22 @@
+<view class="container">
+    <!-- <scroll-view class="scrollContainer"
+     scroll-y="true" 
+     scroll-into-view="blue" 
+     bindscrolltolower="toLower" 
+     bindscrolltoupper="toUpper">
+        <view class="color red" id="red">1</view>
+        <view class="color green" id="green">2</view>
+        <view class="color blue" id="blue">3</view>
+    </scroll-view> -->
+        <d-nav  class="nav" catch:nav="onNav" />
+        <view wx:if="{{topLoading}}" class="container-loading">
+             <d-loading class="loading" />
+        </view>
+        <d-recom magazineId="{{magazineId}}"  recommend="{{recommedInfo}}" class="recom"/>
+        <d-tagList markList="{{markList}}">
+            <d-addTag wx:if="{{magazineId === 0}}" slot="before" class="add" />
+            <view catchtap="gocatalog" slot="after" class="to-catalog">...</view>
+        </d-tagList>
+        <d-articleList articleId="{{aId}}"  more="{{getmore}}" articleList="{{articleList}}" />
+        <d-loading  hidden="{{!loading}}" />
+</view>    

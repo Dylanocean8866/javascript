@@ -1,0 +1,23 @@
+.userBox{
+    display: flex;
+
+    height:50rpx;
+    justify-content:space-between;
+    width:700rpx;
+    padding:30rpx 25rpx;
+}
+.userName{
+    color:#000;
+    font-size:50rpx;
+}
+.userHead{
+    display: block;
+    width:60rpx;
+    height:60rpx;
+    border-radius:50%;
+}
+.image{
+    width:60rpx;
+    height:60rpx;
+    border-radius:50%;
+}

@@ -1,0 +1,11 @@
+/* components/bigimg/cmp.wxss */
+.image{
+    width:700rpx;
+    padding:0 25rpx;
+}
+.text{
+    padding:0 30rpx;
+    font-size:40rpx;
+    font-weight:400;
+    letter-spacing:1prx;
+}

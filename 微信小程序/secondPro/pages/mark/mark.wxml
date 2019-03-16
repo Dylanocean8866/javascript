@@ -1,0 +1,15 @@
+<view class="container">
+    <view class="userContainer">
+        <view class="userBox">
+            <view class="user">
+               {{userInfo.nickName}}
+            </view>
+            <view>
+                <image class="image" src="{{userInfo.avatarUrl}}"/>
+            </view>
+        </view>
+        <view class="share">
+            <button open-type="getUserInfo" bindgetuserinfo="getUserinfo" >getUserInfo</button>
+        </view>
+    </view>
+</view>

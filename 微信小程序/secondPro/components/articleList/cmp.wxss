@@ -1,0 +1,16 @@
+/* components/articleList/cmp.wxss */
+.article{
+    display: block;
+    padding:10rpx 0rpx;
+}
+
+.nomore{
+    text-align:center;
+    font-size:26rpx;
+    background:#666;
+    color:#fff;
+    text-align: center;
+    height: 90rpx;
+    line-height:90rpx;
+    display:block;
+}

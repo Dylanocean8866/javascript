@@ -1,0 +1,10 @@
+/* components/tagList/cmp.wxss */
+.container{
+    background:#fff;
+    width:700rpx;
+    padding:10rpx 25rpx;
+}
+.tag{
+    padding:10rpx;
+    font-size:25rpx;
+}

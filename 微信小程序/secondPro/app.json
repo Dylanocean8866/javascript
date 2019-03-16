@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/mark/mark",
+    "pages/index/index",
+    "pages/type/type",
+    "pages/catalog/catalog"
+  ],
+  "window": {},
+  "tabBar": {
+    "selectedColor":"#f40",
+    "list": [
+      {
+        "pagePath": "pages/catalog/catalog",
+        "text":"目录",
+        "iconPath":"images/1.jpg",
+        "selectedIconPath":"images/2.jpg"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text":"杂志",
+        "iconPath":"images/1.jpg",
+        "selectedIconPath":"images/2.jpg"
+      },
+      {
+        "pagePath": "pages/mark/mark",
+        "text":"马克",
+        "iconPath":"images/1.jpg",
+        "selectedIconPath":"images/2.jpg"
+      }
+    ]
+  }
+}

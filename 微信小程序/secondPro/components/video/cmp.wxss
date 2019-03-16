@@ -1,0 +1,40 @@
+/* components/video/cmp.wxss */
+.container{
+    width:700rprx;
+    padding:0rpx 25rpx;
+}
+
+.video{
+    width:700rpx;
+    height:400rpx;
+}
+.gifPic{
+    width:700rpx;
+    height:400rpx;
+}
+.tubiao{
+    width:80rpx;
+    height:80rpx;
+    position:absolute;
+    top:calc(50% - 40rpx);
+    left:calc(50% - 40rpx);
+    border-radius:50%;
+}
+.coverImg{
+    position: relative;
+}
+.duration{
+    position:absolute;
+    top:calc(50% - 10rpx);
+    left:calc(50% - 20rpx);
+    border-radius:50%;
+    font-size:25rpx;
+}
+.mask{
+    position:fixed;
+    top:0;
+    left:0;
+    width:750rpx;
+    height:1334rpx;
+    background-color:rgba(0,0,0,.6);
+}

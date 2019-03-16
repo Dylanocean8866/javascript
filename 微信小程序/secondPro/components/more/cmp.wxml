@@ -1,0 +1,5 @@
+<!--components/more/cmp.wxml-->
+<!-- <text>components/more/cmp.wxml</text> -->
+<view class="container">
+    <image catchtap="showMore" data-Tag="{{dataTag}}" class="image" src="image/1.jpg" />
+</view>
